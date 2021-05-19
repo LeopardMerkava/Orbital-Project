@@ -13,6 +13,10 @@ config_version=4
 config/name="Orbital"
 config/icon="res://icon.png"
 
+[autoload]
+
+GlobalSettings="*res://GlobalSettings.gd"
+
 [display]
 
 window/size/width=1280
@@ -24,5 +28,4 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
-environment/default_clear_color=Color( 1, 1, 1, 1 )
 environment/default_environment="res://default_env.tres"
