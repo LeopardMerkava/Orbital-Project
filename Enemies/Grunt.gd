@@ -11,7 +11,7 @@ func _ready():
 	$AnimatedSprite.playing = true
 	
 
-func _process(delta):
+func _process(_delta):
 	if health < 0:
 		queue_free()
 	
@@ -20,5 +20,4 @@ func _physics_process(delta):
 	offset += speed * delta
 	
 	if unit_offset >= 1:
-		emit_signal("breach", 1)
 		queue_free()
