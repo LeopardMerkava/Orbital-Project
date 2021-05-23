@@ -16,6 +16,7 @@ func _ready():
 	$HUD.update_health(healthrem)
 	$HUD.update_wave_amount(wavenumber)
 
+
 func _on_SpawnTimer_timeout():
 	sttimeoutcount += 1
 	print("STimeout " + str(sttimeoutcount))
