@@ -1,23 +1,18 @@
-extends PathFollow2D
+extends "res://Enemies/Enemies.gd"
 
-export var speed = 100.0
-export var health = 150.0
-signal breach
-
+export var grunt_speed = 10
+export var grunt_health = 1
+export var grunt_cash = 5
 
 func _ready():
-	speed *= GlobalSettings._get_speed_mult() 
-	health *= GlobalSettings._get_health_mult()
-	$AnimatedSprite.playing = true
-	
+	speed = grunt_speed
+	health = grunt_health
+	cash = grunt_cash
 
-func _process(_delta):
-	if health < 0:
-		queue_free()
-	
-
-func _physics_process(delta):
-	offset += speed * delta
-	
-	if unit_offset >= 1:
-		queue_free()
+func _on_Area2D_area_entered(area):
+	if area.is_in_group("Projectile"):
+		area.queue_free()
+		health -= area.get_damage()
+		if health <= 0:
+			get_parent().get_parent().add_cash(cash)
+			queue_free()

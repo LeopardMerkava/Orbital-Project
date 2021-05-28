@@ -9,6 +9,7 @@ var wavenumber = enemyAmount.size()
 var sttimeoutcount = 0
 export var healthrem = 5
 var doneSpawning = false
+var cash = 0
 
 func _ready():
 	waveCount = 0
@@ -19,9 +20,6 @@ func _ready():
 
 func _on_SpawnTimer_timeout():
 	sttimeoutcount += 1
-	print("STimeout " + str(sttimeoutcount))
-	print("EnemyCount " + str(enemycount))
-	print("EnemmyINDEX " + str(enemyindex))
 	
 	if waveCount > wavenumber:
 		doneSpawning = true
@@ -56,4 +54,6 @@ func stop():
 	$WaveTimer.stop()
 	$SpawnTimer.stop()
 	get_tree().call_group("Enemies", "queue_free")
-	
+
+func add_cash(added_cash):
+	cash += added_cash

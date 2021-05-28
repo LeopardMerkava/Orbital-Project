@@ -21,12 +21,20 @@ height = 17.7886
 loop = false
 script = ExtResource( 2 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." groups=[
+"Enemies",
+]]
 frames = SubResource( 1 )
 flip_h = true
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=[
+"Enemies",
+]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=[
+"Enemies",
+]]
 position = Vector2( -0.890884, 0.890907 )
 shape = SubResource( 2 )
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
