@@ -1,7 +1,7 @@
 extends Area2D
 
 # Tower Building Variables
-var building = true
+var building = false
 var can_build = false
 var colliding = false
 var cell_position
@@ -36,36 +36,39 @@ func _on_Tower_Range_area_exited(area):
 # This method tracks where the players mouse will be going in the map UI.
 # This is a helper function for the build tower
 
-func _mouse_tracker():
-	position = get_global_mouse_position()
-	cell_position = Vector2(floor(position.x / cell_size.x), floor(position.y / cell_size.y))
-	cell_id = tilemap.get_cellv(cell_position)
-	if cell_id != -1 && !colliding:
-		current_tile = tilemap.tile_set.tile_get_name(cell_id)
-		if current_tile == "tower_base":
-			can_build = true
-			position = Vector2(cell_position.x * cell_size.x + cell_size.x / 2,
-								cell_position.y * cell_size.y + cell_size.y / 2)
-	else:
-		can_build = false
+
+
+#func _mouse_tracker():
+#	position = get_global_mouse_position()
+#	cell_position = Vector2(floor(position.x / cell_size.x), floor(position.y / cell_size.y))
+#	cell_id = tilemap.get_cellv(cell_position)
+#	if cell_id != -1 && !colliding:
+#		current_tile = tilemap.tile_set.tile_get_name(cell_id)
+#		if current_tile == "tower_base":
+#			can_build = true
+#			position = Vector2(cell_position.x * cell_size.x + cell_size.x / 2,
+#								cell_position.y * cell_size.y + cell_size.y / 2)
+#	else:
+#		can_build = false
 
 
 
 
 func _physics_process(delta):
 	if building:
-		_mouse_tracker()
-		if can_build:
-			$"Tower Base".modulate = Color(0.0, 1.0, 0.0, 0.6)
-			$"Tower Turret".modulate = Color(0.0, 1.0, 0.0, 0.6)
-		else:
-			$"Tower Base".modulate = Color(1.0, 0.0, 0.0, 0.6)
-			$"Tower Turret".modulate = Color(1.0, 0.0, 0.0, 0.6)
-		if Input.is_action_just_pressed("click") and can_build:
-			building = false
-			get_parent().tower.built()
-			$"Tower Base".modulate = Color(1.0, 1.0, 1.0, 1.0)
-			$"Tower Turret".modulate = Color(1.0, 1.0, 1.0, 1.0)
+		pass
+#		_mouse_tracker()
+#		if can_build:
+#			$"Tower Base".modulate = Color(0.0, 1.0, 0.0, 0.6)
+#			$"Tower Turret".modulate = Color(0.0, 1.0, 0.0, 0.6)
+#		else:
+#			$"Tower Base".modulate = Color(1.0, 0.0, 0.0, 0.6)
+#			$"Tower Turret".modulate = Color(1.0, 0.0, 0.0, 0.6)
+#		if Input.is_action_just_pressed("click") and can_build:
+#			building = false
+#			get_parent().tower.built()
+#			$"Tower Base".modulate = Color(1.0, 1.0, 1.0, 1.0)
+#			$"Tower Turret".modulate = Color(1.0, 1.0, 1.0, 1.0)
 	else:
 		if enemy_array.size() == 0:
 			pass
