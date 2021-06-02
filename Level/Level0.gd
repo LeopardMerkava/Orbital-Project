@@ -1,6 +1,7 @@
 extends Node2D
 
 var enemyList = [load("res://Enemies/Grunt.tscn")]
+var tower = [load("res://Towers/BasicTower.tscn")]
 var enemyAmount = [[1], [2], [3]]
 var enemyindex = 0
 var enemycount = 0
@@ -10,6 +11,8 @@ var sttimeoutcount = 0
 export var healthrem = 5
 var doneSpawning = false
 var cash = 0
+var building = false
+var instance
 
 func _ready():
 	waveCount = 0
@@ -46,9 +49,18 @@ func _on_HUD_start():
 	waveCount = 1
 	$HUD.update_wave(waveCount)
 
+func _on_TextureButton_pressed():
+	if !building:
+		instance = tower.instance()
+		add_child(instance)
+		building = true
+
 func _process(_delta):
 	if healthrem < 1:
 		stop()
+
+func tower_built():
+	building = false
 
 func stop():
 	$WaveTimer.stop()
@@ -57,3 +69,5 @@ func stop():
 
 func add_cash(added_cash):
 	cash += added_cash
+
+

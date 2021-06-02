@@ -110,7 +110,7 @@
 2/shapes = [  ]
 2/z_index = 0
 
-[sub_resource type="TileSet" id=5]
+[sub_resource type="TileSet" id=3]
 0/name = "tower_base"
 0/texture = ExtResource( 7 )
 0/tex_offset = Vector2( 0, 0 )
@@ -160,7 +160,7 @@ tile_data = PoolIntArray( 65536, 1610612737, 0, 65537, 1610612737, 0, 65538, 0, 
 
 [node name="Base Spots" type="TileMap" parent="."]
 scale = Vector2( 0.75, 0.75 )
-tile_set = SubResource( 5 )
+tile_set = SubResource( 3 )
 format = 1
 tile_data = PoolIntArray( 196613, 0, 0, 196622, 0, 0, 327690, 0, 0, 327694, 0, 0 )
 
