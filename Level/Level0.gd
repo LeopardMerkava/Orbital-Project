@@ -1,7 +1,7 @@
 extends Node2D
 
 var enemyList = [load("res://Enemies/Grunt.tscn")]
-var tower = [load("res://Towers/BasicTower.tscn")]
+var tower = load("res://Towers/BasicTower.tscn")
 var enemyAmount = [[1], [2], [3]]
 var enemyindex = 0
 var enemycount = 0

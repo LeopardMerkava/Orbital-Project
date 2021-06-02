@@ -26,7 +26,7 @@ func _on_Tower_Range_area_entered(area):
 		enemy_array.append(area.get_parent())
 		
 
-
+#
 #func _on_Tower_Range_area_exited(area):
 #	if area.is_in_group("Enemies"):
 #		enemy_array.erase(area.get_parent())
