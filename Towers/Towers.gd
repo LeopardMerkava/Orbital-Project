@@ -26,13 +26,12 @@ func _on_Tower_Range_area_entered(area):
 		enemy_array.append(area.get_parent())
 		
 
-#
-#func _on_Tower_Range_area_exited(area):
-#	if area.is_in_group("Enemies"):
-#		enemy_array.erase(area.get_parent())
-#		if area.get_parent() == current_target.get_ref():
-#			current_target = null
-#			$Fire.stop()
+func _on_Tower_Range_area_exited(area):
+	if area.is_in_group("Enemies"):
+		enemy_array.erase(area.get_parent())
+		if current_target and area.get_parent() == current_target.get_ref():
+			current_target = null
+			$Fire.stop()
 
 
 # This method tracks where the players mouse will be going in the map UI.

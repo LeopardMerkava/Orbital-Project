@@ -162,7 +162,7 @@ tile_data = PoolIntArray( 65536, 1610612737, 0, 65537, 1610612737, 0, 65538, 0, 
 scale = Vector2( 0.75, 0.75 )
 tile_set = SubResource( 3 )
 format = 1
-tile_data = PoolIntArray( 196613, 0, 0, 196622, 0, 0, 327690, 0, 0, 327694, 0, 0 )
+tile_data = PoolIntArray( 196613, 0, 0, 196622, 0, 0, 327690, 0, 0, 327694, 0, 0, 458757, 0, 0 )
 
 [node name="Base" type="TileMap" parent="."]
 position = Vector2( -2.91534, 51.3831 )

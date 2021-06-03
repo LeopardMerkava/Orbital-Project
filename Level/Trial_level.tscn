@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://UI/HUD.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Level/Level0.gd" type="Script" id=2]
-[ext_resource path="res://Towers/BasicTower.tscn" type="PackedScene" id=3]
 [ext_resource path="res://MapAlpha.tscn" type="PackedScene" id=4]
 
 [sub_resource type="Curve2D" id=1]
@@ -21,17 +20,13 @@ __meta__ = {
 position = Vector2( 0.516068, 94.5127 )
 
 [node name="TextureButton" type="TextureButton" parent="Map"]
-margin_left = 2.0
-margin_top = 3.0
-margin_right = 1110.0
-margin_bottom = 589.0
+margin_left = 3.22636
+margin_top = 3.4873
+margin_right = 1111.23
+margin_bottom = 589.487
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Tower" parent="." instance=ExtResource( 3 )]
-position = Vector2( 269.188, 266.59 )
-scale = Vector2( 0.75, 0.75 )
 
 [node name="Path2D" type="Path2D" parent="." groups=[
 "Enemies",
