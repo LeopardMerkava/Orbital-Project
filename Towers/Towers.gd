@@ -11,6 +11,7 @@ var tilemap
 var current_tile
 var instance
 
+
 # Tower tracking and attacking variables
 var enemy_array = []
 var current_target = null
@@ -37,13 +38,11 @@ func _on_Tower_Range_area_exited(area):
 # This method tracks where the players mouse will be going in the map UI.
 # This is a helper function for the build tower
 
-
-
 func _mouse_tracker():
 	position = get_global_mouse_position()
 	cell_position = Vector2(floor(position.x / cell_size.x), floor(position.y / cell_size.y))
 	cell_id = tilemap.get_cellv(cell_position)
-	if cell_id != -1 && !colliding:
+	if cell_id != -1 && !get_parent().used_spaces_array.has(cell_position):
 		current_tile = tilemap.tile_set.tile_get_name(cell_id)
 		if current_tile == "tower_base":
 			can_build = true
@@ -67,6 +66,7 @@ func _physics_process(delta):
 			get_parent().tower_built()
 			$"Tower Base".modulate = Color(1.0, 1.0, 1.0, 1.0)
 			$"Tower Turret".modulate = Color(1.0, 1.0, 1.0, 1.0)
+			get_parent().used_spaces_array.append(cell_position)
 	else:
 		if enemy_array.size() == 0:
 			pass

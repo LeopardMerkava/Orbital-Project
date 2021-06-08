@@ -12,6 +12,7 @@ var doneSpawning = false
 var cash = 0
 var building = false
 var instance
+var used_spaces_array = []
 
 func _ready():
 	waveCount = 0
