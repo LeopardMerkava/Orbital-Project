@@ -42,7 +42,7 @@ func _mouse_tracker():
 	position = get_global_mouse_position()
 	cell_position = Vector2(floor(position.x / cell_size.x), floor(position.y / cell_size.y))
 	cell_id = tilemap.get_cellv(cell_position)
-	if cell_id != -1 && !colliding:
+	if cell_id != -1 && !get_parent().used_spaces_array.has(cell_position):
 		current_tile = tilemap.tile_set.tile_get_name(cell_id)
 		if current_tile == "tower_base":
 			can_build = true
