@@ -8,14 +8,24 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "PathFollow2D",
+"class": "Enemies",
+"language": "GDScript",
+"path": "res://src/Enemies/Enemies.gd"
+} ]
+_global_script_class_icons={
+"Enemies": ""
+}
+
 [application]
 
 config/name="Orbital"
-config/icon="res://icon.png"
+config/icon="res://src/icon.png"
 
 [autoload]
 
-GlobalSettings="*res://GlobalSettings.gd"
+GlobalSettings="*res://src/GlobalSettings.gd"
 
 [display]
 
@@ -36,4 +46,4 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
-environment/default_environment="res://default_env.tres"
+environment/default_environment="res://src/default_env.tres"
