@@ -16,7 +16,7 @@ var instance
 var enemy_array = []
 var current_target = null
 var target_position
-var projectile = load("res://Projectile/NormalProjectile.tscn")
+onready var projectile = load("res://src/Projectile/NormalProjectile.tscn")
 
 func _ready():
 	tilemap = get_parent().get_node("Map/Base Spots")
@@ -88,8 +88,13 @@ func _physics_process(delta):
 
 func _on_Fire_timeout():
 	if current_target.get_ref():
+		$"Tower Turret".play("Fire")
 		var instance
 		instance = projectile.instance()
 		instance.set_target(current_target.get_ref())
 		instance.position = $"Tower Turret/Projectile Spawn Location".get_global_transform().origin
 		get_parent().add_child(instance)
+
+
+func _on_Tower_Turret_animation_finished() -> void:
+	$"Tower Turret".stop()

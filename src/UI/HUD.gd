@@ -19,19 +19,18 @@ func _ready():
 
 func update_health(new_health):
 	health = new_health
-	$HealthCount.text = str(new_health)
+	$HealthCount.text = "HEALTH   " + str(new_health)
 
 func update_cash(new_cash):
 	cash = new_cash
-	$CashCount.text = str(new_cash)
+	$CashCount.text = "CASH  " + str(new_cash)
 
 func update_wave(new_wave):
 	wave = new_wave
-	$WaveCounter.text = str(min(new_wave, waveamount))
+	$WaveCounter.text = "WAVE    " + str(min(new_wave, waveamount)) + " / " + str(waveamount)
 	
 func update_wave_amount(new_wave_amount):
 	waveamount = new_wave_amount
-	$WaveAmount.text = str(new_wave_amount)
 
 func _on_Button_pressed():
 	$Button.hide()

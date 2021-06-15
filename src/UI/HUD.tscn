@@ -6,92 +6,42 @@
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource( 2 )
 
-[node name="WaveLabel" type="Label" parent="."]
-margin_left = 940.0
-margin_right = 1080.0
-margin_bottom = 103.0
-custom_fonts/font = ExtResource( 1 )
-text = "WAVE
-"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Slash" type="Label" parent="."]
-margin_left = 1180.0
-margin_right = 1320.0
-margin_bottom = 103.0
-custom_fonts/font = ExtResource( 1 )
-text = "/
-"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="WaveCounter" type="Label" parent="."]
-margin_left = 1060.0
-margin_right = 1178.0
-margin_bottom = 50.0
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 255.604
+margin_top = 44.5449
+margin_right = 624.604
+margin_bottom = 94.5449
 custom_fonts/font = ExtResource( 1 )
-text = "999"
-align = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="WaveAmount" type="Label" parent="."]
-margin_left = 1160.0
-margin_right = 1278.0
-margin_bottom = 50.0
-custom_fonts/font = ExtResource( 1 )
-text = "999"
+text = "WAVE   999 / 999"
 align = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="HealthCount" type="Label" parent="."]
-margin_left = 180.0
-margin_right = 298.0
-margin_bottom = 50.0
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -614.74
+margin_top = 50.7401
+margin_right = -326.74
+margin_bottom = 100.74
 custom_fonts/font = ExtResource( 1 )
-text = "999"
-align = 2
+text = "HEALTH   999"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="CashCount" type="Label" parent="."]
-margin_left = 154.0
-margin_top = 60.0
-margin_right = 272.0
-margin_bottom = 110.0
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -613.622
+margin_top = 108.69
+margin_right = -380.622
+margin_bottom = 158.69
 custom_fonts/font = ExtResource( 1 )
-text = "999"
-align = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HealthLabel" type="Label" parent="."]
-margin_left = 20.0
-margin_right = 191.0
-margin_bottom = 50.0
-rect_pivot_offset = Vector2( 160, 120 )
-custom_fonts/font = ExtResource( 1 )
-text = "HEALTH"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Cash" type="Label" parent="."]
-margin_left = 40.0
-margin_top = 60.0
-margin_right = 182.0
-margin_bottom = 110.0
-rect_pivot_offset = Vector2( 160, 120 )
-custom_fonts/font = ExtResource( 1 )
-text = "CASH"
+text = "CASH   999"
 __meta__ = {
 "_edit_use_anchors_": false
 }
