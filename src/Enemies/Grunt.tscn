@@ -18,6 +18,7 @@ height = 17.7886
 [node name="Grunt" type="PathFollow2D" groups=[
 "Enemies",
 ]]
+scale = Vector2( 0.75, 0.75 )
 loop = false
 script = ExtResource( 2 )
 
