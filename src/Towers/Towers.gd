@@ -3,7 +3,6 @@ extends Area2D
 # Tower Building Variables
 var building = true
 var can_build = false
-var colliding = false
 var cell_position
 var cell_size
 var cell_id
