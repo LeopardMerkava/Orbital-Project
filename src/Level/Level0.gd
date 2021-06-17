@@ -60,6 +60,7 @@ func _process(_delta):
 
 func tower_built():
 	building = false
+	_on_TextureButton_pressed()
 
 func stop():
 	$WaveTimer.stop()
