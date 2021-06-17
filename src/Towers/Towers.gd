@@ -1,26 +1,23 @@
 extends Area2D
 
 # Tower Building Variables
-var building = true
-var can_build = false
-var colliding = false
-var cell_position
-var cell_size
-var cell_id
-var tilemap
-var current_tile
-var instance
+onready var building = true
+onready var can_build = false
+onready var colliding = false
+onready var cell_position
+onready var cell_id
+onready var tilemap = get_parent().get_node("Map/Base Spots")
+onready var cell_size = tilemap.cell_size
+onready var current_tile
+onready var prev_cell_position
+onready var instance
 
 
 # Tower tracking and attacking variables
-var enemy_array = []
-var current_target = null
-var target_position
+onready var enemy_array = []
+onready var current_target = null
+onready var target_position
 onready var projectile = load("res://src/Projectile/NormalProjectile.tscn")
-
-func _ready():
-	tilemap = get_parent().get_node("Map/Base Spots")
-	cell_size = tilemap.cell_size
 
 func _on_Tower_Range_area_entered(area):
 	if area.is_in_group("Enemies"):
@@ -41,9 +38,13 @@ func _on_Tower_Range_area_exited(area):
 func _mouse_tracker():
 	position = get_global_mouse_position()
 	cell_position = Vector2(floor(position.x / cell_size.x), floor(position.y / cell_size.y))
+	if (prev_cell_position != cell_position):
+		print(cell_position)
+		prev_cell_position = cell_position
 	cell_id = tilemap.get_cellv(cell_position)
 	if cell_id != -1 && !get_parent().used_spaces_array.has(cell_position):
 		current_tile = tilemap.tile_set.tile_get_name(cell_id)
+		print(current_tile)
 		if current_tile == "tower_base":
 			can_build = true
 			position = Vector2(cell_position.x * cell_size.x + cell_size.x / 2,

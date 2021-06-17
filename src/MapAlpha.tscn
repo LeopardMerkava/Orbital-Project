@@ -8,7 +8,6 @@
 [ext_resource path="res://Assets/Images/MapTiles/StraightRoad.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Images/MapTiles/Map_BasePlace_Fixed.png" type="Texture" id=7]
 
-
 [sub_resource type="TileSet" id=1]
 0/name = "BlankMapSlate.png 0"
 0/texture = ExtResource( 1 )
@@ -163,6 +162,8 @@ tile_data = PoolIntArray( 65536, 1610612737, 0, 65537, 1610612737, 0, 65538, 0, 
 scale = Vector2( 2, 2 )
 tile_set = SubResource( 3 )
 cell_size = Vector2( 32, 32 )
+cell_quadrant_size = 32
+cell_tile_origin = 1
 format = 1
 tile_data = PoolIntArray( 131076, 0, 0, 131083, 0, 0, 262151, 0, 0 )
 

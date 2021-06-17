@@ -18,10 +18,6 @@ position = Vector2( 223.853, 149.903 )
 scale = Vector2( 2.06835, 2.08454 )
 curve = SubResource( 1 )
 
-[node name="Map" parent="Path2D" instance=ExtResource( 3 )]
-position = Vector2( -108.228, -71.912 )
-scale = Vector2( 0.483477, 0.479723 )
-
 [node name="WaveTimer" type="Timer" parent="."]
 wait_time = 10.0
 
@@ -29,6 +25,9 @@ wait_time = 10.0
 wait_time = 0.5
 
 [node name="HUD" parent="." instance=ExtResource( 4 )]
+
+[node name="Map" parent="." instance=ExtResource( 3 )]
+position = Vector2( -0.000381112, -0.000442505 )
 
 [connection signal="timeout" from="WaveTimer" to="." method="_on_WaveTimer_timeout"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]

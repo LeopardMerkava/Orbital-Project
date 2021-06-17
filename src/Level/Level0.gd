@@ -2,6 +2,7 @@ extends Node2D
 
 onready var enemyList = [load("res://src/Enemies/Grunt.tscn")]
 onready var tower = load("res://src/Towers/BasicTower.tscn")
+onready var spawner = load("res://src/Level/Spawner.tscn")
 var enemyAmount = [[1], [2], [3]]
 var enemyindex = 0
 var enemycount = 0
@@ -23,46 +24,29 @@ func _ready():
 	$HUD.update_wave(waveCount)
 	$HUD.update_cash(startingCash)
 
-
-func _on_SpawnTimer_timeout():
-	pass
-#	if waveCount > wavenumber:
-#		doneSpawning = true
-#		$SpawnTimer.stop()
-#		$WaveTimer.stop()
-#	elif enemyindex == enemyAmount[waveCount - 1].size():
-#		$SpawnTimer.stop()
-#		enemyindex = 0
-#	elif enemycount == enemyAmount[waveCount - 1][enemyindex]:
-#		enemycount = 0
-#		enemyindex += 1
-#	else:
-#		enemycount += 1
-#		$Path2D.add_child(enemyList[enemyindex].instance())
-
 func _on_WaveTimer_timeout():
+	# If last wave, stop
 	if waveCount == wavenumber:
 		$WaveTimer.stop()
 		doneSpawning = true
-	else:
-		#$SpawnTimer.start()	
-		var spawner = load("res://src/Level/Spawner.tscn").instance()
-		add_child(spawner)
+	else:	
+		#spawn spawner for every enemy in current list of this wave's enemy
 		for i in range (0, enemyAmount[waveCount].size(), 1):
-			spawner.spawn(enemyList[i], 1, enemyAmount[waveCount][i], $Path2D)
+			var currspawner = spawner.instance()
+			add_child(currspawner)
+			currspawner.spawn(enemyList[i], 1, enemyAmount[waveCount][i], $Path2D)
 		waveCount += 1
 		$HUD.update_wave(waveCount)
 
 func _on_HUD_start():
 	$WaveTimer.start()
-	var spawner = load("res://src/Level/Spawner.tscn").instance()
-	add_child(spawner)
 	for i in range (0, enemyAmount[waveCount].size(), 1):
-		spawner.spawn(enemyList[i], 1, enemyAmount[waveCount][i], $Path2D)
+			var currspawner = spawner.instance()
+			add_child(currspawner)
+			currspawner.spawn(enemyList[i], 1, enemyAmount[waveCount][i], $Path2D)
 	waveCount += 1
 	$HUD.update_wave(waveCount)
 	
-
 
 func _on_TextureButton_pressed():
 	if !building:
