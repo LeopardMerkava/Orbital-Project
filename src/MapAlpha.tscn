@@ -173,3 +173,5 @@ scale = Vector2( 2, 2 )
 tile_set = SubResource( 4 )
 format = 1
 tile_data = PoolIntArray( 65536, 0, 0 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
