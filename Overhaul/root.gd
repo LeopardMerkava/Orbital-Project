@@ -1,6 +1,6 @@
 extends Node
 
-onready var mob = preload("res://Mobs/mob.tscn")
+onready var mob = preload("res://mob.tscn")
 var mobs_remaining = 0
 var lives = 100
 
@@ -67,7 +67,7 @@ func _on_spawner_time_timeout():
 		# reset timer for next wave
 		$spawner_time.start(60)
 		# reset mobs remaining
-		mobs_remaining = 5
+		mobs_remaining = 999
 		#enable next wave
 		$UI/start_next_wave.disabled = false
 
