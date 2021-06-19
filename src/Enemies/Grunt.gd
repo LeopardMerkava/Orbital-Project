@@ -10,12 +10,10 @@ func _ready():
 	health = grunt_health
 	cash = grunt_cash
 
-func _on_Area2D_area_entered(area):
-	if area.is_in_group("Projectile"):
-		area.queue_free()
-		anim_player.play("Hit")
-		health -= area.get_damage()
+func dealt_damage(damage):
+	anim_player.play("Hit")
+	health -= damage
 		
-		if health <= 0:
-			get_parent().get_parent().add_cash(cash)
-			anim_player.play("Death")
+	if health <= 0:
+		get_parent().get_parent().add_cash(cash)
+		anim_player.play("Death")

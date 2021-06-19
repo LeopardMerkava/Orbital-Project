@@ -16,7 +16,7 @@ animations = [ {
 radius = 15.33
 height = 17.7886
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 resource_name = "Death"
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:position")
@@ -71,8 +71,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 )
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "Hit"
+[sub_resource type="Animation" id=4]
 tracks/0/type = "value"
 tracks/0/path = NodePath("AudioStreamPlayer:playing")
 tracks/0/interp = 1
@@ -126,6 +125,7 @@ flip_h = true
 [node name="Area2D" type="Area2D" parent="." groups=[
 "Enemies",
 ]]
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=[
 "Enemies",
@@ -137,7 +137,7 @@ shape = SubResource( 2 )
 stream = ExtResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Death = SubResource( 4 )
-anims/Hit = SubResource( 3 )
+anims/Death = SubResource( 3 )
+anims/Hit = SubResource( 4 )
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]

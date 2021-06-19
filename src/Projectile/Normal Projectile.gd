@@ -1,28 +1,10 @@
-extends Area2D
+extends Projectile
 
-var target = null
-var speed = 200
-var velocity
-var AOE = false
-var AOE_RANGE = 0
-var damage = 1
+export var damage_dealt : int = 100
+export var travel_speed : int = 300
 
-func _physics_process(delta):
-	if target.get_ref():
-		velocity = ((target.get_ref().get_global_transform().origin - position).normalized() * speed)
-		position += velocity * delta
-		rotation = velocity.angle()
-	else:
-		queue_free()
-
-func set_target(new_target):
-	target = weakref(new_target)
-
-func get_damage():
-	return damage
-
-func is_AOE():
-	return AOE
-
-func get_AOE_range():
-	return AOE_RANGE
+func _ready() -> void:
+	set_damage(damage_dealt)
+	set_speed(travel_speed)
+	is_AOE = false
+	
