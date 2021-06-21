@@ -24,6 +24,7 @@ animations = [ {
 [node name="Area2D" type="Area2D" groups=[
 "Projectile",
 ]]
+collision_layer = 2
 script = ExtResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." groups=[
@@ -35,3 +36,5 @@ frames = SubResource( 1 )
 "Projectile",
 ]]
 polygon = PoolVector2Array( -9, -5, 6, -5, 10, 0, 6, 5, -9, 5 )
+
+[connection signal="area_entered" from="." to="." method="_on_Area2D_area_entered"]
