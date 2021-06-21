@@ -13,7 +13,7 @@ var invalid_tile
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#start timer
-	$spawner_time.start(60)
+	$spawner_time.start(1)
 	mobs_remaining = 5
 	
 	$UI/lives.text = "Lives: " +  str(lives)
@@ -67,7 +67,7 @@ func _on_spawner_time_timeout():
 		# reset timer for next wave
 		$spawner_time.start(60)
 		# reset mobs remaining
-		mobs_remaining = 999
+		mobs_remaining = 5
 		#enable next wave
 		$UI/start_next_wave.disabled = false
 
