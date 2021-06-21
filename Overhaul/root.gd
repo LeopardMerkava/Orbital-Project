@@ -13,7 +13,7 @@ var invalid_tile
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#start timer
-	$spawner_time.start(1)
+	$spawner_time.start(60)
 	mobs_remaining = 5
 	
 	$UI/lives.text = "Lives: " +  str(lives)
