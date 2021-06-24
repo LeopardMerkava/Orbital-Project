@@ -13,6 +13,10 @@ config_version=4
 config/name="Renaissance"
 config/icon="res://icon.png"
 
+[autoload]
+
+GlobalSettings="*res://Scripts/global_settings.gd"
+
 [display]
 
 window/size/resizable=false
