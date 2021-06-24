@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scripts/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Audio/Music/MENU_MUSIC.mp3" type="AudioStream" id=2]
-[ext_resource path="res://Menus/Webp.net-resizeimage.jpg" type="Texture" id=3]
+[ext_resource path="res://Menus/Images/Webp.net-resizeimage.jpg" type="Texture" id=3]
 [ext_resource path="res://Menus/Fonts/SpaceRave-6YE1M.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://Menus/Fonts/Pixeboy-z8XGD.ttf" type="DynamicFontData" id=5]
 
@@ -10,7 +10,7 @@
 size = 60
 font_data = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=2]
 size = 46
 font_data = ExtResource( 5 )
 
@@ -76,7 +76,7 @@ margin_bottom = 27.0
 margin_right = 28.0
 margin_bottom = 27.0
 rect_min_size = Vector2( 28, 0 )
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 custom_constants/shadow_offset_y = 0
 text = ">"
 
@@ -85,7 +85,7 @@ margin_left = 32.0
 margin_right = 271.0
 margin_bottom = 27.0
 rect_min_size = Vector2( 239, 0 )
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 custom_constants/shadow_offset_y = 0
 text = " Start"
 
@@ -102,7 +102,7 @@ margin_bottom = 27.0
 margin_right = 28.0
 margin_bottom = 27.0
 rect_min_size = Vector2( 28, 0 )
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 custom_constants/shadow_offset_y = 0
 text = ">"
 
@@ -111,7 +111,7 @@ margin_left = 32.0
 margin_right = 271.0
 margin_bottom = 27.0
 rect_min_size = Vector2( 239, 0 )
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 custom_constants/shadow_offset_y = 0
 text = " Continue"
 
@@ -128,7 +128,7 @@ margin_bottom = 27.0
 margin_right = 28.0
 margin_bottom = 27.0
 rect_min_size = Vector2( 28, 0 )
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 custom_constants/shadow_offset_y = 0
 text = ">"
 
@@ -137,7 +137,7 @@ margin_left = 32.0
 margin_right = 271.0
 margin_bottom = 27.0
 rect_min_size = Vector2( 239, 0 )
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 custom_constants/shadow_offset_y = 0
 text = " Options"
 
@@ -154,7 +154,7 @@ margin_bottom = 27.0
 margin_right = 28.0
 margin_bottom = 27.0
 rect_min_size = Vector2( 28, 0 )
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 custom_constants/shadow_offset_y = 0
 text = ">"
 
@@ -163,7 +163,7 @@ margin_left = 32.0
 margin_right = 271.0
 margin_bottom = 27.0
 rect_min_size = Vector2( 239, 0 )
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 custom_constants/shadow_offset_y = 0
 text = " Exit"
 

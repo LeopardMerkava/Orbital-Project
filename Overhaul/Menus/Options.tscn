@@ -1,0 +1,134 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Assets/Audio/Music/MENU_MUSIC.mp3" type="AudioStream" id=2]
+[ext_resource path="res://Menus/Images/OptionsImage.jpg" type="Texture" id=3]
+[ext_resource path="res://Menus/Fonts/SpaceRave-6YE1M.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Menus/Fonts/Pixeboy-z8XGD.ttf" type="DynamicFontData" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 60
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 46
+font_data = ExtResource( 5 )
+
+[node name="Options" type="MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 331.0
+margin_top = 191.0
+margin_right = 692.0
+margin_bottom = 408.0
+custom_constants/separation = 50
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
+margin_right = 361.0
+margin_bottom = 72.0
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer"]
+margin_left = 59.0
+margin_right = 302.0
+margin_bottom = 72.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.666667, 0.933333, 0.572549, 1 )
+custom_colors/font_color_shadow = Color( 0.894118, 0.27451, 0.27451, 1 )
+text = "Options"
+uppercase = true
+
+[node name="CenterContainer2" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
+margin_top = 122.0
+margin_right = 361.0
+margin_bottom = 217.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2"]
+margin_right = 361.0
+margin_bottom = 95.0
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
+margin_right = 361.0
+margin_bottom = 27.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer"]
+margin_right = 361.0
+margin_bottom = 27.0
+
+[node name="Music" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer"]
+margin_right = 118.0
+margin_bottom = 27.0
+rect_min_size = Vector2( 28, 0 )
+custom_fonts/font = SubResource( 2 )
+custom_constants/shadow_offset_y = 0
+text = "Music "
+
+[node name="Start" type="HSlider" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer"]
+margin_left = 122.0
+margin_right = 361.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 239, 0 )
+min_value = -24.0
+max_value = 0.0
+
+[node name="CenterContainer2" type="CenterContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
+margin_top = 31.0
+margin_right = 361.0
+margin_bottom = 58.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2"]
+margin_right = 361.0
+margin_bottom = 27.0
+
+[node name="SFX" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer"]
+margin_right = 118.0
+margin_bottom = 27.0
+rect_min_size = Vector2( 118, 0 )
+custom_fonts/font = SubResource( 2 )
+custom_constants/shadow_offset_y = 0
+text = "SFX "
+
+[node name="Continue" type="HSlider" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer"]
+margin_left = 122.0
+margin_right = 361.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 239, 0 )
+min_value = -24.0
+max_value = 0.0
+
+[node name="CenterContainer4" type="CenterContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
+margin_top = 62.0
+margin_right = 361.0
+margin_bottom = 95.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer4"]
+margin_left = 61.0
+margin_right = 300.0
+margin_bottom = 33.0
+
+[node name="Exit" type="Button" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer4/HBoxContainer"]
+margin_right = 239.0
+margin_bottom = 33.0
+rect_min_size = Vector2( 239, 0 )
+custom_fonts/font = SubResource( 2 )
+text = " Back"
+
+[node name="Background" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 2 )
+volume_db = -15.0
+autoplay = true

@@ -1,6 +1,7 @@
 extends MarginContainer
 
 const lvlOne =  preload("res://Level_1.tscn")
+const options = preload("res://Menus/Options.tscn")
 
 # Selectors
 onready var selectorOne = $CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer/Selector
@@ -46,7 +47,8 @@ func handle_selection(_current_selection):
 	elif _current_selection == 1:
 		print("Add Continue!")
 	elif _current_selection == 2:
-		print("Add Options!")
+		get_parent().add_child(options.instance())
+		queue_free()
 	elif _current_selection == 3:
 		get_tree().quit()
 
