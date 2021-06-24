@@ -167,7 +167,7 @@ custom_fonts/font = SubResource( 2 )
 custom_constants/shadow_offset_y = 0
 text = " Exit"
 
-[node name="Background" type="AudioStreamPlayer2D" parent="."]
+[node name="MainBackground" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 2 )
 volume_db = -15.0
 autoplay = true

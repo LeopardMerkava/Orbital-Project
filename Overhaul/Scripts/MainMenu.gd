@@ -1,7 +1,7 @@
 extends MarginContainer
 
 const lvlOne =  preload("res://Level_1.tscn")
-const options = preload("res://Menus/Options.tscn")
+var options = load("res://Menus/Options.tscn")
 
 # Selectors
 onready var selectorOne = $CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer/Selector
@@ -55,8 +55,6 @@ func handle_selection(_current_selection):
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	set_current_selection(0)
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+	
+func _physics_process(delta):
+	$"MainBackground".volume_db = GlobalSettings.music

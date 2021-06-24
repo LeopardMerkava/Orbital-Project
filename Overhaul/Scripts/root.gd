@@ -8,8 +8,6 @@ var lives = 100
 var can_place_tower = false
 var invalid_tile
 
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#start timer
@@ -25,6 +23,8 @@ func _ready():
 func _process(delta):
 	# show the timer
 	$UI/next_wave_time.text = str(int($spawner_time.time_left))
+	# set music
+	$"LevelBackground".volume_db = GlobalSettings.music
 	
 func _unhandled_input(event):
 	if event is InputEventMouseMotion and can_place_tower:
@@ -83,4 +83,8 @@ func _on_start_next_wave_pressed():
 func _on_tower_pressed():
 	$tower_placement.clear()
 	can_place_tower = !can_place_tower
-		
+	
+func _button_pressed(button_name):
+	match button_name:
+		"Music":
+			$"LevelBackground".volume_db = GlobalSettings.music
