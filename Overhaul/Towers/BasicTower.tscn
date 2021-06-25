@@ -30,7 +30,7 @@ animations = [ {
 extents = Vector2( 32, 33.25 )
 
 [sub_resource type="CircleShape2D" id=4]
-radius = 72.0
+radius = 96.8644
 
 [node name="Tower" type="Area2D"]
 collision_mask = 4

@@ -12,8 +12,10 @@ func _on_Area2D_area_entered(area: Area2D) -> void:
 		var area_list = .get_node("Range").get_overlapping_areas()
 		.get_node("AnimatedSprite").play("default")
 		.get_node("Range/AnimationPlayer").play("Explode")
+		area.dealt_damage(.get_damage())
+		print(area_list)
 		for foundarea in area_list:
-			if foundarea.is_in_group("Enemies"):
-				foundarea.get_parent().dealt_damage(.get_damage())
+			if foundarea.is_in_group("Enemies") && foundarea != area:
+				foundarea.dealt_damage(.get_damage())
 		yield(.get_node("AnimatedSprite"), "animation_finished")
 		.queue_free()

@@ -34,16 +34,15 @@ extents = Vector2( 32, 32 )
 radius = 128.239
 
 [node name="Tower" type="Area2D"]
-collision_layer = 4
+monitorable = false
+collision_mask = 4
 script = ExtResource( 3 )
 
 [node name="TowerBase" type="AnimatedSprite" parent="."]
-position = Vector2( 32, 33.368 )
 frames = SubResource( 1 )
 animation = "New Anim"
 
 [node name="TowerTurret" type="AnimatedSprite" parent="."]
-position = Vector2( 32, 34 )
 rotation = -0.000181871
 frames = SubResource( 2 )
 animation = "Fire"
@@ -54,17 +53,16 @@ offset = Vector2( -0.0439148, -8.67139 )
 position = Vector2( 6.64413e-06, -38 )
 
 [node name="TowerCollision" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2( 32, 32 )
 shape = SubResource( 3 )
 
 [node name="Fire" type="Timer" parent="."]
 
 [node name="TowerRange" type="Area2D" parent="."]
 monitorable = false
+collision_layer = 0
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TowerRange"]
-position = Vector2( 32, 32 )
 shape = SubResource( 4 )
 
 [connection signal="animation_finished" from="TowerTurret" to="." method="_on_Tower_Turret_animation_finished"]
