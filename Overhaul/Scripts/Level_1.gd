@@ -1,7 +1,7 @@
 extends Node
 
 onready var mob = preload("res://Enemies/Grunt.tscn")
-onready var tower = preload("res://Towers/BasicTower.tscn")
+onready var tower = preload("res://Towers/BombTower.tscn")
 
 var mobs_remaining = 0
 var lives = 100
