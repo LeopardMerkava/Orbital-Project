@@ -1,7 +1,7 @@
 extends Node2D
 
 onready var enemyList = [load("res://src/Enemies/Grunt.tscn")]
-onready var tower = load("res://src/Towers/BasicTower.tscn")
+onready var tower = load("res://src/Towers/BombTower.tscn")
 onready var spawner = load("res://src/Level/Spawner.tscn")
 var enemyAmount = [[1], [2], [3]]
 var enemyindex = 0
@@ -23,6 +23,7 @@ func _ready():
 	$HUD.update_wave_amount(wavenumber)
 	$HUD.update_wave(waveCount)
 	$HUD.update_cash(startingCash)
+	$HUD.connect("start", self, "_on_HUD_start")
 
 func _on_WaveTimer_timeout():
 	# If last wave, stop

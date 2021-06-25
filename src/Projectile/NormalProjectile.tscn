@@ -17,8 +17,8 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
 "loop": true,
-"name": "crash",
-"speed": 5.0
+"name": "dealdamage",
+"speed": 20.0
 } ]
 
 [node name="Area2D" type="Area2D" groups=[
@@ -31,6 +31,8 @@ script = ExtResource( 1 )
 "Projectile",
 ]]
 frames = SubResource( 1 )
+animation = "dealdamage"
+frame = 4
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." groups=[
 "Projectile",

@@ -1,4 +1,5 @@
 extends Area2D
+class_name Towers
 
 # Tower Building Variables
 onready var building = true
@@ -17,7 +18,7 @@ onready var instance
 onready var enemy_array = []
 onready var current_target = null
 onready var target_position
-onready var projectile = load("res://src/Projectile/NormalProjectile.tscn")
+onready var projectile : PackedScene setget set_projectile
 
 func _on_Tower_Range_area_entered(area):
 	if area.is_in_group("Enemies"):
@@ -57,16 +58,16 @@ func _physics_process(delta):
 	if building:
 		_mouse_tracker()
 		if can_build:
-			$"Tower Base".modulate = Color(0.0, 1.0, 0.0, 0.6)
-			$"Tower Turret".modulate = Color(0.0, 1.0, 0.0, 0.6)
+			$"TowerBase".modulate = Color(0.0, 1.0, 0.0, 0.6)
+			$"TowerTurret".modulate = Color(0.0, 1.0, 0.0, 0.6)
 		else:
-			$"Tower Base".modulate = Color(1.0, 0.0, 0.0, 0.6)
-			$"Tower Turret".modulate = Color(1.0, 0.0, 0.0, 0.6)
+			$"TowerBase".modulate = Color(1.0, 0.0, 0.0, 0.6)
+			$"TowerTurret".modulate = Color(1.0, 0.0, 0.0, 0.6)
 		if Input.is_action_just_pressed("click") and can_build:
 			building = false
 			get_parent().tower_built()
-			$"Tower Base".modulate = Color(1.0, 1.0, 1.0, 1.0)
-			$"Tower Turret".modulate = Color(1.0, 1.0, 1.0, 1.0)
+			$"TowerBase".modulate = Color(1.0, 1.0, 1.0, 1.0)
+			$"TowerTurret".modulate = Color(1.0, 1.0, 1.0, 1.0)
 			get_parent().used_spaces_array.append(cell_position)
 	else:
 		if enemy_array.size() == 0:
@@ -82,20 +83,23 @@ func _physics_process(delta):
 				$Fire.stop()
 			else:
 				target_position = current_target.get_ref().get_global_transform().origin
-				$"Tower Turret".rotation = (target_position - position).angle() + deg2rad(90)
+				$"TowerTurret".rotation = (target_position - position).angle() + deg2rad(90)
 				
 				
 		
 
 func _on_Fire_timeout():
 	if current_target.get_ref():
-		$"Tower Turret".play("Fire")
+		$"TowerTurret".play("Fire")
 		var instance
 		instance = projectile.instance()
 		instance.set_target(current_target.get_ref())
-		instance.position = $"Tower Turret/Projectile Spawn Location".get_global_transform().origin
+		instance.position = $"TowerTurret/ProjectileSpawnLocation".get_global_transform().origin
 		get_parent().add_child(instance)
 
 
 func _on_Tower_Turret_animation_finished() -> void:
-	$"Tower Turret".stop()
+	$"TowerTurret".stop()
+
+func set_projectile(used_projectile : PackedScene) -> void:
+	projectile = used_projectile

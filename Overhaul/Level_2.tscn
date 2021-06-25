@@ -6,15 +6,15 @@
 [ext_resource path="res://Assets/MapTiles/SnowStraightRoad.png" type="Texture" id=5]
 [ext_resource path="res://Assets/MapTiles/SnowCurvedRoad.png" type="Texture" id=6]
 
-[sub_resource type="NavigationPolygon" id=2]
+[sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
 polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 
-[sub_resource type="NavigationPolygon" id=3]
+[sub_resource type="NavigationPolygon" id=2]
 vertices = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 
-[sub_resource type="TileSet" id=4]
+[sub_resource type="TileSet" id=3]
 0/name = "SnowStraightRoad.png 0"
 0/texture = ExtResource( 5 )
 0/tex_offset = Vector2( 0, 0 )
@@ -23,7 +23,7 @@ polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 0/tile_mode = 0
 0/occluder_offset = Vector2( 0, 0 )
 0/navigation_offset = Vector2( 0, 0 )
-0/navigation = SubResource( 2 )
+0/navigation = SubResource( 1 )
 0/shape_offset = Vector2( 0, 0 )
 0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 0/shape_one_way = false
@@ -38,7 +38,7 @@ polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 1/tile_mode = 0
 1/occluder_offset = Vector2( 0, 0 )
 1/navigation_offset = Vector2( 0, 0 )
-1/navigation = SubResource( 3 )
+1/navigation = SubResource( 2 )
 1/shape_offset = Vector2( 0, 0 )
 1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 1/shape_one_way = false
@@ -46,7 +46,11 @@ polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 1/shapes = [  ]
 1/z_index = 0
 
+<<<<<<< Updated upstream
 [sub_resource type="TileSet" id=5]
+=======
+[sub_resource type="TileSet" id=4]
+>>>>>>> Stashed changes
 0/name = "tower_placement_tileset.png 0"
 0/texture = ExtResource( 3 )
 0/tex_offset = Vector2( 0, 0 )
@@ -88,7 +92,7 @@ tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 
 [node name="nav" type="Navigation2D" parent="."]
 
 [node name="tilemap_nav" type="TileMap" parent="nav"]
-tile_set = SubResource( 4 )
+tile_set = SubResource( 3 )
 format = 1
 tile_data = PoolIntArray( 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, -1073741823, 0, 65544, 1610612737, 0, 65545, 1610612736, 0, 65546, 1610612736, 0, 65547, 1610612736, 0, 65548, 1610612736, 0, 65549, 1610612736, 0, 65550, -1073741823, 0, 131075, -1073741824, 0, 131080, -1610612736, 0, 131086, -1610612736, 0, 196611, -1073741824, 0, 196616, -1610612736, 0, 196622, -1610612735, 0, 196623, 0, 0, 262147, -1073741824, 0, 262152, -1610612736, 0, 327683, -1610612735, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 1, 0 )
 
@@ -181,7 +185,11 @@ __meta__ = {
 }
 
 [node name="tower_placement" type="TileMap" parent="."]
+<<<<<<< Updated upstream
 tile_set = SubResource( 5 )
+=======
+tile_set = SubResource( 4 )
+>>>>>>> Stashed changes
 format = 1
 
 [node name="Background" type="AudioStreamPlayer2D" parent="."]
