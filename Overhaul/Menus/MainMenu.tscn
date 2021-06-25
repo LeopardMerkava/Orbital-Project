@@ -60,16 +60,16 @@ margin_right = 637.0
 margin_bottom = 242.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2"]
-margin_left = 183.0
-margin_right = 454.0
+margin_left = 155.0
+margin_right = 481.0
 margin_bottom = 120.0
 
 [node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
-margin_right = 271.0
+margin_right = 326.0
 margin_bottom = 27.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer"]
-margin_right = 271.0
+margin_right = 326.0
 margin_bottom = 27.0
 
 [node name="Selector" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer"]
@@ -82,20 +82,20 @@ text = ">"
 
 [node name="Start" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer"]
 margin_left = 32.0
-margin_right = 271.0
+margin_right = 326.0
 margin_bottom = 27.0
-rect_min_size = Vector2( 239, 0 )
+rect_min_size = Vector2( 294, 0 )
 custom_fonts/font = SubResource( 2 )
 custom_constants/shadow_offset_y = 0
 text = " Start"
 
 [node name="CenterContainer2" type="CenterContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
 margin_top = 31.0
-margin_right = 271.0
+margin_right = 326.0
 margin_bottom = 58.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2"]
-margin_right = 271.0
+margin_right = 326.0
 margin_bottom = 27.0
 
 [node name="Selector" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer"]
@@ -108,20 +108,20 @@ text = ">"
 
 [node name="Continue" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer"]
 margin_left = 32.0
-margin_right = 271.0
+margin_right = 326.0
 margin_bottom = 27.0
-rect_min_size = Vector2( 239, 0 )
+rect_min_size = Vector2( 294, 0 )
 custom_fonts/font = SubResource( 2 )
 custom_constants/shadow_offset_y = 0
-text = " Continue"
+text = " Levels"
 
 [node name="CenterContainer3" type="CenterContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
 margin_top = 62.0
-margin_right = 271.0
+margin_right = 326.0
 margin_bottom = 89.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer3"]
-margin_right = 271.0
+margin_right = 326.0
 margin_bottom = 27.0
 
 [node name="Selector" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer3/HBoxContainer"]
@@ -134,20 +134,20 @@ text = ">"
 
 [node name="Options" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer3/HBoxContainer"]
 margin_left = 32.0
-margin_right = 271.0
+margin_right = 326.0
 margin_bottom = 27.0
-rect_min_size = Vector2( 239, 0 )
+rect_min_size = Vector2( 294, 0 )
 custom_fonts/font = SubResource( 2 )
 custom_constants/shadow_offset_y = 0
 text = " Options"
 
 [node name="CenterContainer4" type="CenterContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
 margin_top = 93.0
-margin_right = 271.0
+margin_right = 326.0
 margin_bottom = 120.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer4"]
-margin_right = 271.0
+margin_right = 326.0
 margin_bottom = 27.0
 
 [node name="Selector" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer4/HBoxContainer"]
@@ -160,9 +160,9 @@ text = ">"
 
 [node name="Exit" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer4/HBoxContainer"]
 margin_left = 32.0
-margin_right = 271.0
+margin_right = 326.0
 margin_bottom = 27.0
-rect_min_size = Vector2( 239, 0 )
+rect_min_size = Vector2( 294, 0 )
 custom_fonts/font = SubResource( 2 )
 custom_constants/shadow_offset_y = 0
 text = " Exit"

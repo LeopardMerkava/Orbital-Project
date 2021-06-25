@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Tilesets/tileset.tres" type="TileSet" id=1]
-[ext_resource path="res://Scripts/root.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Level_1.gd" type="Script" id=2]
 [ext_resource path="res://Assets/MapTiles/tower_placement_tileset.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Audio/Music/BG_1.mp3" type="AudioStream" id=4]
 [ext_resource path="res://Tilesets/nav.tres" type="TileSet" id=5]
