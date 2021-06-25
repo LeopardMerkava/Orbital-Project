@@ -1,6 +1,6 @@
 extends MarginContainer
 
-const lvlOne =  preload("res://Level_1.tscn")
+const lvlOne =  preload("res://Levels/Level_1.tscn")
 var options = load("res://Menus/Options.tscn")
 
 # Selectors
