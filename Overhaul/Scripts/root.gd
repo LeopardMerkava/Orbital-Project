@@ -1,6 +1,7 @@
 extends Node
 
 onready var mob = preload("res://Enemies/Grunt.tscn")
+onready var tower = preload("res://Towers/BasicTower.tscn")
 
 var mobs_remaining = 0
 var lives = 100
@@ -33,13 +34,30 @@ func _unhandled_input(event):
 		
 		#get the tile location of the mouse cursor
 		var tile = $tower_placement.world_to_map(event.position)
+		
 		if not tile in invalid_tile:
 			#colour it green
 			$tower_placement.set_cell(tile.x, tile.y, 0)
 		else:
 			#colour it red
 			$tower_placement.set_cell(tile.x, tile.y, 1)
+			
+	# Building
+	elif event is InputEventMouseButton and can_place_tower and event.pressed:
+		#get the tile location of the mouse cursor
+		var tile = $tower_placement.world_to_map(event.position)
 		
+		if not tile in invalid_tile:
+			can_place_tower = false
+			$tower_placement.clear()
+			
+			# Invalid space for future placements
+			invalid_tile.append(tile)
+			
+			# Place tower
+			var tower_instance = tower.instance()
+			tower_instance.position = tile * Vector2(64,64)
+			$entities.add_child(tower_instance)
 
 func _on_spawner_time_timeout():
 	#Create instance of mob

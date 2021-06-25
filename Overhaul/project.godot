@@ -8,6 +8,22 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Area2D",
+"class": "Projectile",
+"language": "GDScript",
+"path": "res://Scripts/Projectile.gd"
+}, {
+"base": "Area2D",
+"class": "Towers",
+"language": "GDScript",
+"path": "res://Scripts/Towers.gd"
+} ]
+_global_script_class_icons={
+"Projectile": "",
+"Towers": ""
+}
+
 [application]
 
 config/name="Renaissance"
@@ -21,6 +37,14 @@ GlobalSettings="*res://Scripts/global_settings.gd"
 [display]
 
 window/size/resizable=false
+
+[input]
+
+mouseClick={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
 
 [physics]
 
