@@ -1,0 +1,96 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://src/Projectile/BombProjectile.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Images/Projectiles/PROJECILE_BOMB_2.svg" type="Texture" id=2]
+[ext_resource path="res://Assets/Images/Projectiles/PROJECILE_BOMB_3.svg" type="Texture" id=3]
+[ext_resource path="res://Assets/Images/Projectiles/PROJECILE_BOMB_1.svg" type="Texture" id=4]
+[ext_resource path="res://Assets/Images/WHITE_CIRCLE.png" type="Texture" id=5]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 7.50215
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 83.1315
+
+[sub_resource type="Animation" id=5]
+resource_name = "Default"
+tracks/0/type = "value"
+tracks/0/path = NodePath("WHITE_CIRCLE:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Explode"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("WHITE_CIRCLE:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.287175, 0.217638 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 5.11369, 5.11369 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("WHITE_CIRCLE:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.63728, 1.51572 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 1, 0.643137, 0, 0.247059 ) ]
+}
+
+[node name="Area2D" type="Area2D" groups=[
+"Projectile",
+]]
+collision_layer = 2
+script = ExtResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." groups=[
+"Projectile",
+]]
+frames = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.198425, 0 )
+shape = SubResource( 2 )
+
+[node name="Range" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
+position = Vector2( 0, -0.679046 )
+shape = SubResource( 3 )
+
+[node name="WHITE_CIRCLE" type="Sprite" parent="Range"]
+modulate = Color( 0, 0, 0, 0 )
+texture = ExtResource( 5 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Range"]
+anims/Default = SubResource( 5 )
+anims/Explode = SubResource( 4 )
+
+[connection signal="area_entered" from="." to="." method="_on_Area2D_area_entered"]

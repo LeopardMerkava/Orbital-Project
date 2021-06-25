@@ -49,7 +49,6 @@ stream = ExtResource( 5 )
 volume_db = -23.223
 autoplay = true
 
-[connection signal="start" from="HUD" to="." method="_on_HUD_start"]
 [connection signal="pressed" from="Map/TextureButton" to="." method="_on_TextureButton_pressed"]
 [connection signal="timeout" from="WaveTimer" to="." method="_on_WaveTimer_timeout"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]
