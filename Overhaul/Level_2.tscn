@@ -46,11 +46,7 @@ polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 1/shapes = [  ]
 1/z_index = 0
 
-<<<<<<< Updated upstream
-[sub_resource type="TileSet" id=5]
-=======
 [sub_resource type="TileSet" id=4]
->>>>>>> Stashed changes
 0/name = "tower_placement_tileset.png 0"
 0/texture = ExtResource( 3 )
 0/tex_offset = Vector2( 0, 0 )
@@ -185,11 +181,7 @@ __meta__ = {
 }
 
 [node name="tower_placement" type="TileMap" parent="."]
-<<<<<<< Updated upstream
-tile_set = SubResource( 5 )
-=======
 tile_set = SubResource( 4 )
->>>>>>> Stashed changes
 format = 1
 
 [node name="Background" type="AudioStreamPlayer2D" parent="."]
