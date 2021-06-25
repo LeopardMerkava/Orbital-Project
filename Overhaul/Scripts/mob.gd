@@ -1,5 +1,8 @@
 extends Area2D
 
+# Animation
+onready var mob = $AnimatedSprite
+
 var speed = 100
 var path : = PoolVector2Array() setget set_path
 var destination = Vector2()
@@ -14,6 +17,7 @@ func _physics_process(delta):
 		# move along the path if the mob hasn't reached destination
 		var distance = speed * delta
 		move_along_path(distance)
+		mob.play("Move")
 	elif abs(position.x - destination.x) < 10 and abs(position.y - destination.y) < 10:
 		# free the mob when it reaches destination
 		queue_free()
