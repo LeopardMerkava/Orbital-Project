@@ -20,7 +20,7 @@ func set_target(new_target) -> void:
 
 func _on_Area2D_area_entered(area: Area2D) -> void:
 	if(area.is_in_group("Enemies")):
-		area.get_parent().dealt_damage(damage)
+		area.dealt_damage(damage)
 		queue_free()
 	
 func set_damage(new_damage) -> void:

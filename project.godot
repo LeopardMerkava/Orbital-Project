@@ -18,10 +18,16 @@ _global_script_classes=[ {
 "class": "Projectile",
 "language": "GDScript",
 "path": "res://src/Projectile/Projectile.gd"
+}, {
+"base": "Area2D",
+"class": "Towers",
+"language": "GDScript",
+"path": "res://src/Towers/Towers.gd"
 } ]
 _global_script_class_icons={
 "Enemies": "",
-"Projectile": ""
+"Projectile": "",
+"Towers": ""
 }
 
 [application]
@@ -46,6 +52,16 @@ click={
 "events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
  ]
 }
+
+[layer_names]
+
+2d_render/layer_1="Enemy"
+2d_physics/layer_1="Enemy"
+2d_render/layer_2="Projectile"
+2d_physics/layer_2="Projectile"
+2d_render/layer_3="Tower"
+2d_physics/layer_3="Tower"
+2d_physics/layer_4="Flying Enemy"
 
 [physics]
 
