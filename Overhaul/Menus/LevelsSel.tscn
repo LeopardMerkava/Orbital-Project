@@ -32,9 +32,9 @@ margin_bottom = 600.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 margin_left = 129.0
-margin_top = 189.0
+margin_top = 144.0
 margin_right = 895.0
-margin_bottom = 411.0
+margin_bottom = 456.0
 custom_constants/separation = 50
 
 [node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
@@ -94,6 +94,18 @@ rect_min_size = Vector2( 150, 100 )
 disabled = true
 text = "Level 3"
 
+[node name="CenterContainer3" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
+margin_top = 272.0
+margin_right = 766.0
+margin_bottom = 312.0
+
+[node name="Back" type="Button" parent="CenterContainer/VBoxContainer/CenterContainer3"]
+margin_left = 308.0
+margin_right = 458.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 150, 40 )
+text = "Back"
+
 [node name="MainBackground" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 2 )
 volume_db = -15.0
@@ -102,3 +114,4 @@ autoplay = true
 [connection signal="pressed" from="CenterContainer/VBoxContainer/CenterContainer2/HBoxContainer/Level 1" to="." method="_on_Level_1_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/CenterContainer2/HBoxContainer/Level 2" to="." method="_on_Level_2_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/CenterContainer2/HBoxContainer/Level 3" to="." method="_on_Level_3_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/CenterContainer3/Back" to="." method="_on_Back_pressed"]

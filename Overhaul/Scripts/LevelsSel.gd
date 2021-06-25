@@ -2,10 +2,11 @@ extends MarginContainer
 
 var lvlOne = load("res://Levels/Level_1.tscn")
 var lvlTwo = load("res://Levels/Level_2.tscn")
+var MainMenu = load("res://Menus/MainMenu.tscn")
 
-onready var selectorOne = $"CenterContainer/VBoxContainer/CenterContainer2/HBoxContainer/Level 1"
 onready var selectorTwo = $"CenterContainer/VBoxContainer/CenterContainer2/HBoxContainer/Level 2"
 onready var selectorThree = $"CenterContainer/VBoxContainer/CenterContainer2/HBoxContainer/Level 3"
+
 
 func _unlock_Level():
 	if GlobalSettings.unlockedlevels.has(2):
@@ -28,3 +29,8 @@ func _on_Level_2_pressed():
 
 func _on_Level_3_pressed():
 	pass
+
+
+func _on_Back_pressed():
+	get_parent().add_child(MainMenu.instance())
+	queue_free()
