@@ -1,6 +1,7 @@
 extends MarginContainer
 
 var lvlOne =  load("res://Levels/Level_1.tscn")
+var levels = load("res://Menus/LevelsSel.tscn")
 var options = load("res://Menus/Options.tscn")
 
 # Selectors
@@ -45,7 +46,8 @@ func handle_selection(_current_selection):
 		get_parent().add_child(lvlOne.instance())
 		queue_free()
 	elif _current_selection == 1:
-		print("Add Continue!")
+		get_parent().add_child(levels.instance())
+		queue_free()
 	elif _current_selection == 2:
 		get_parent().add_child(options.instance())
 		queue_free()
