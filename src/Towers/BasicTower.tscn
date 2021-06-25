@@ -43,6 +43,7 @@ animation = "New Anim"
 [node name="Tower Turret" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
 animation = "Fire"
+frame = 2
 playing = true
 centered = false
 offset = Vector2( -17, -42.0391 )

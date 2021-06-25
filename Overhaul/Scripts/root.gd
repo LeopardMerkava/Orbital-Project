@@ -1,6 +1,7 @@
 extends Node
 
 onready var mob = preload("res://mob.tscn")
+
 var mobs_remaining = 0
 var lives = 100
 

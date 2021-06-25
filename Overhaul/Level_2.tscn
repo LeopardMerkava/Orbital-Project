@@ -1,7 +1,6 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://tileset2.tres" type="TileSet" id=1]
-[ext_resource path="res://Scripts/root.gd" type="Script" id=2]
 [ext_resource path="res://Assets/MapTiles/tower_placement_tileset.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Audio/Music/BG_1.mp3" type="AudioStream" id=4]
 [ext_resource path="res://Assets/MapTiles/SnowStraightRoad.png" type="Texture" id=5]
@@ -47,7 +46,7 @@ polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 1/shapes = [  ]
 1/z_index = 0
 
-[sub_resource type="TileSet" id=1]
+[sub_resource type="TileSet" id=5]
 0/name = "tower_placement_tileset.png 0"
 0/texture = ExtResource( 3 )
 0/tex_offset = Vector2( 0, 0 )
@@ -77,8 +76,7 @@ polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 1/shapes = [  ]
 1/z_index = 0
 
-[node name="Level_1" type="Node2D"]
-script = ExtResource( 2 )
+[node name="Level_2" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2( 1, 1 )
@@ -183,7 +181,7 @@ __meta__ = {
 }
 
 [node name="tower_placement" type="TileMap" parent="."]
-tile_set = SubResource( 1 )
+tile_set = SubResource( 5 )
 format = 1
 
 [node name="Background" type="AudioStreamPlayer2D" parent="."]

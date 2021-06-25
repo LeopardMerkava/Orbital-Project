@@ -113,6 +113,7 @@ margin_bottom = 16.0
 rect_min_size = Vector2( 239, 0 )
 min_value = -24.0
 max_value = 0.0
+value = -15.0
 
 [node name="CenterContainer4" type="CenterContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
 margin_top = 62.0
