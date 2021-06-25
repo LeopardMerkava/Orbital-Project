@@ -56,7 +56,7 @@ func _unhandled_input(event):
 			
 			# Place tower
 			var tower_instance = tower.instance()
-			tower_instance.position = tile * Vector2(64,64)
+			tower_instance.position = tile * Vector2(64,64) + Vector2(32, 32)
 			$entities.add_child(tower_instance)
 
 func _on_spawner_time_timeout():
@@ -107,3 +107,6 @@ func _button_pressed(button_name):
 	match button_name:
 		"Music":
 			$"LevelBackground".volume_db = GlobalSettings.music
+
+func add_cash(cash) -> void:
+	pass

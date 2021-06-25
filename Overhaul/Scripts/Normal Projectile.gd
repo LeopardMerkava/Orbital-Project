@@ -1,6 +1,6 @@
 extends Projectile
 
-export var damage_dealt : int = 100
+export var damage_dealt : int = 1
 export var travel_speed : int = 300
 
 func _ready() -> void:

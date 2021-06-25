@@ -9,12 +9,12 @@ onready var projectile : PackedScene setget set_projectile
 
 func _on_Tower_Range_area_entered(area):
 	if area.is_in_group("Enemies"):
-		enemy_array.append(area.get_parent())
+		enemy_array.append(area)
 
 func _on_Tower_Range_area_exited(area):
 	if area.is_in_group("Enemies"):
-		enemy_array.erase(area.get_parent())
-		if current_target and area.get_parent() == current_target.get_ref():
+		enemy_array.erase(area)
+		if current_target and area == current_target.get_ref():
 			current_target = null
 			$Fire.stop()
 
@@ -49,3 +49,4 @@ func _on_Tower_Turret_animation_finished() -> void:
 
 func set_projectile(used_projectile : PackedScene) -> void:
 	projectile = used_projectile
+

@@ -1,5 +1,4 @@
 extends Node
-
 var music = -15
 var sfx = -15
 var speed_multiplier = 1.0
