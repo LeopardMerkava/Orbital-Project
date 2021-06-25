@@ -11,7 +11,7 @@ func _on_Area2D_area_entered(area: Area2D) -> void:
 	if(area.is_in_group("Enemies")):
 		var area_list = .get_node("Range").get_overlapping_areas()
 		.get_node("AnimatedSprite").play("default")
-		.get_node("Range/WHITE_CIRCLE").modulate = Color(1.0, 0.0, 0.0, 0.6)
+		.get_node("Range/AnimationPlayer").play("Explode")
 		for foundarea in area_list:
 			if foundarea.is_in_group("Enemies"):
 				foundarea.get_parent().dealt_damage(.get_damage())
