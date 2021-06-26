@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Tilesets/tileset.tres" type="TileSet" id=1]
-[ext_resource path="res://Scripts/Level_1.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Levels.gd" type="Script" id=2]
 [ext_resource path="res://Assets/MapTiles/tower_placement_tileset.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Audio/Music/BG_1.mp3" type="AudioStream" id=4]
 [ext_resource path="res://Tilesets/nav.tres" type="TileSet" id=5]
@@ -67,6 +67,12 @@ position = Vector2( 1026.05, 221.708 )
 
 [node name="spawner_time" type="Timer" parent="."]
 one_shot = true
+
+[node name="LevelBackground" type="AudioStreamPlayer2D" parent="."]
+pause_mode = 2
+position = Vector2( 896, 536 )
+stream = ExtResource( 4 )
+volume_db = -15.0
 
 [node name="entities" type="YSort" parent="."]
 
@@ -151,12 +157,6 @@ __meta__ = {
 tile_set = SubResource( 1 )
 cell_quadrant_size = 1
 format = 1
-
-[node name="LevelBackground" type="AudioStreamPlayer2D" parent="."]
-pause_mode = 2
-position = Vector2( 896, 536 )
-stream = ExtResource( 4 )
-volume_db = -15.0
 
 [connection signal="timeout" from="spawner_time" to="." method="_on_spawner_time_timeout"]
 [connection signal="pressed" from="UI/tower" to="." method="_on_tower_pressed"]
