@@ -157,6 +157,7 @@ pause_mode = 2
 position = Vector2( 896, 536 )
 stream = ExtResource( 4 )
 volume_db = -15.0
+autoplay = true
 
 [connection signal="timeout" from="spawner_time" to="." method="_on_spawner_time_timeout"]
 [connection signal="pressed" from="UI/tower" to="." method="_on_tower_pressed"]
