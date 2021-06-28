@@ -73,7 +73,6 @@ func dealt_damage(damage):
 		speed = 0
 		#play death animation
 		anim_player.play(death_animation_name)
-		
 	else:
 		anim_player.play(hit_animation_name)
 
