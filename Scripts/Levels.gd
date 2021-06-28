@@ -3,6 +3,7 @@ class_name Levels
 
 #Game Over
 var gameover = load("res://Menus/GameOver.tscn")
+var gameoverbool = false
 
 #Spawner
 onready var spawner = load("res://Misc/Spawner.tscn")
@@ -19,21 +20,23 @@ var done_spawning = false
 export var lives = 3
 export var cash = 10
 
+
 # Tower & Tower Placement Vars
-onready var tower_list = 
 onready var basic_tower = preload("res://Towers/BasicTower.tscn")
 onready var bomb_tower = preload("res://Towers/BombTower.tscn")
 var can_place_tower = false
 var invalid_tile
 var curr_tower
 
+# Victory Conditions [Under Construction]
+var victory = load("res://Menus/Victory.tscn")
+var victory2 = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#start timer
 	$spawner_time.start(60)
-	
 	$UI/lives.text = "Lives: " +  str(lives)
-	
 	# Towers cannot be placed on these tiles
 	invalid_tile = $nav/tilemap_nav.get_used_cells()
 	
@@ -47,6 +50,7 @@ func _process(delta):
 	$"LevelBackground".volume_db = GlobalSettings.music
 	# Show cash
 	$UI/cash.text = "Cash: " + str(cash)
+
 	
 func _unhandled_input(event):
 	if event is InputEventMouseMotion and can_place_tower:
@@ -103,12 +107,14 @@ func _on_spawner_time_timeout():
 		$UI/start_next_wave.disabled = false
 	else:
 		done_spawning = true
+		$cheat_vic_timer.start(15)
 	
 func lose_a_life():
 	lives -= 1
 	if lives < 0:
 		pass
 	elif lives == 0:
+		gameoverbool = true
 		$spawner_time.stop()
 		$UI/start_next_wave.disabled = true
 		$UI/lives.text = "Lives: 0"
@@ -139,3 +145,13 @@ func _button_pressed(button_name):
 
 func add_cash(money):
 	cash += money
+	
+func _on_cheat_vic_timer_timeout():
+	if gameoverbool == false and victory2 == false:
+		victory()
+
+func victory():
+	victory2 = true
+	$"LevelBackground".playing = false
+	GlobalSettings.unlockedlevels.append(2)
+	get_parent().add_child(victory.instance())

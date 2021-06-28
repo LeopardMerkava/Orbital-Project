@@ -1,47 +1,26 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Tilesets/tileset2.tres" type="TileSet" id=1]
-[ext_resource path="res://Scripts/Level_1.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Level_2.gd" type="Script" id=2]
 [ext_resource path="res://Assets/MapTiles/tower_placement_tileset.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Audio/Music/BG_1.mp3" type="AudioStream" id=4]
-[ext_resource path="res://Assets/MapTiles/SnowStraightRoad.png" type="Texture" id=5]
+[ext_resource path="res://Tilesets/nav2.tres" type="TileSet" id=5]
 
-[sub_resource type="NavigationPolygon" id=6]
-vertices = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
-polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
-
-[sub_resource type="TileSet" id=7]
-0/name = "SnowStraightRoad.png 0"
-0/texture = ExtResource( 5 )
-0/tex_offset = Vector2( 0, 0 )
-0/modulate = Color( 1, 1, 1, 1 )
-0/region = Rect2( 0, 0, 64, 64 )
-0/tile_mode = 0
-0/occluder_offset = Vector2( 0, 0 )
-0/navigation_offset = Vector2( 0, 0 )
-0/navigation = SubResource( 6 )
-0/shape_offset = Vector2( 0, 0 )
-0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-0/shape_one_way = false
-0/shape_one_way_margin = 0.0
-0/shapes = [  ]
-0/z_index = 0
-
-[sub_resource type="DynamicFontData" id=1]
+[sub_resource type="DynamicFontData" id=4]
 font_path = "res://Levels/Fonts/Pixeboy-z8XGD.ttf"
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=5]
 size = 30
-font_data = SubResource( 1 )
+font_data = SubResource( 4 )
 
-[sub_resource type="DynamicFontData" id=3]
+[sub_resource type="DynamicFontData" id=6]
 font_path = "res://Levels/Fonts/Pixeboy-z8XGD.ttf"
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=7]
 size = 30
-font_data = SubResource( 3 )
+font_data = SubResource( 6 )
 
-[sub_resource type="TileSet" id=5]
+[sub_resource type="TileSet" id=8]
 0/name = "tower_placement_tileset.png 0"
 0/texture = ExtResource( 3 )
 0/tex_offset = Vector2( 0, 0 )
@@ -71,7 +50,7 @@ font_data = SubResource( 3 )
 1/shapes = [  ]
 1/z_index = 0
 
-[node name="Level_1" type="Node2D"]
+[node name="Level_2" type="Node2D"]
 script = ExtResource( 2 )
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -87,17 +66,18 @@ tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 
 [node name="nav" type="Navigation2D" parent="."]
 
 [node name="tilemap_nav" type="TileMap" parent="nav"]
-tile_set = SubResource( 7 )
+tile_set = ExtResource( 5 )
 cell_tile_origin = 1
 collision_layer = 0
 collision_mask = 0
 format = 1
+tile_data = PoolIntArray( 2, -1610612736, 0, 65538, -1610612736, 0, 65542, 1610612737, 0, 65543, 1610612736, 0, 65544, 1610612736, 0, 65545, 1610612736, 0, 65546, -1073741823, 0, 131074, -1073741824, 0, 131078, -1610612736, 0, 131082, -1073741824, 0, 196610, -1073741824, 0, 196614, -1610612736, 0, 196618, -1073741824, 0, 262146, -1073741824, 0, 262150, -1610612736, 0, 262154, -1073741824, 0, 327682, -1610612735, 0, 327683, 1610612736, 0, 327684, 1610612736, 0, 327685, 1610612736, 0, 327686, 1, 0, 327690, -1610612735, 0, 327691, 1610612736, 0, 327692, 1610612736, 0, 327693, 1610612736, 0, 327694, -1073741823, 0, 393230, -1610612735, 0, 393231, 1610612736, 0 )
 
 [node name="start" type="Position2D" parent="."]
-position = Vector2( 0, 96 )
+position = Vector2( 160, 0 )
 
 [node name="end" type="Position2D" parent="."]
-position = Vector2( 1026.05, 221.708 )
+position = Vector2( 1024, 416 )
 
 [node name="spawner_time" type="Timer" parent="."]
 one_shot = true
@@ -125,7 +105,7 @@ margin_left = 24.0
 margin_top = 504.0
 margin_right = 132.0
 margin_bottom = 507.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 5 )
 text = "Cash: 000"
 align = 1
 __meta__ = {
@@ -137,7 +117,7 @@ margin_left = 24.0
 margin_top = 536.0
 margin_right = 120.0
 margin_bottom = 554.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 7 )
 text = "Lives: 3"
 align = 1
 __meta__ = {
@@ -224,7 +204,7 @@ __meta__ = {
 }
 
 [node name="tower_placement" type="TileMap" parent="."]
-tile_set = SubResource( 5 )
+tile_set = SubResource( 8 )
 cell_quadrant_size = 1
 format = 1
 

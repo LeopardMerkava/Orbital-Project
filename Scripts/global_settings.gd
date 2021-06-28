@@ -5,6 +5,7 @@ var speed_multiplier = 1.0
 var health_multiplier = 1.0
 var damage_multiplier = 1.0
 var cost_multiplier = 1.0
+var victory_condition
 
 func _get_speed_mult():
 	return speed_multiplier
