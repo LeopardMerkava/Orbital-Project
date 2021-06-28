@@ -20,9 +20,11 @@ export var lives = 3
 export var cash = 10
 
 # Tower & Tower Placement Vars
-onready var tower = preload("res://Towers/BasicTower.tscn")
+onready var basic_tower = preload("res://Towers/BasicTower.tscn")
+onready var bomb_tower = preload("res://Towers/BombTower.tscn")
 var can_place_tower = false
 var invalid_tile
+var curr_tower
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -42,6 +44,8 @@ func _process(delta):
 	$UI/next_wave_time.text = str(int($spawner_time.time_left))
 	# set music
 	$"LevelBackground".volume_db = GlobalSettings.music
+	# Show cash
+	$UI/cash.text = "Cash: " + str(cash)
 	
 func _unhandled_input(event):
 	if event is InputEventMouseMotion and can_place_tower:
@@ -50,7 +54,7 @@ func _unhandled_input(event):
 		#get the tile location of the mouse cursor
 		var tile = $tower_placement.world_to_map(event.position)
 		
-		if not tile in invalid_tile:
+		if not tile in invalid_tile and (cash - curr_tower.instance().cost) >= 0:
 			#colour it green
 			$tower_placement.set_cell(tile.x, tile.y, 0)
 		else:
@@ -62,7 +66,7 @@ func _unhandled_input(event):
 		#get the tile location of the mouse cursor
 		var tile = $tower_placement.world_to_map(event.position)
 		
-		if not tile in invalid_tile:
+		if not tile in invalid_tile and (cash - curr_tower.instance().cost) >= 0:
 			can_place_tower = false
 			$tower_placement.clear()
 			
@@ -70,9 +74,10 @@ func _unhandled_input(event):
 			invalid_tile.append(tile)
 			
 			# Place tower
-			var tower_instance = tower.instance()
+			var tower_instance = curr_tower.instance()
 			tower_instance.position = tile * Vector2(64,64) + Vector2(32, 32)
 			$entities.add_child(tower_instance)
+			cash -= curr_tower.instance().cost
 
 func _on_spawner_time_timeout():
 	#Stop timer (if using button)
@@ -100,7 +105,16 @@ func _on_spawner_time_timeout():
 	
 func lose_a_life():
 	lives -= 1
-	$UI/lives.text = "Lives: " +  str(lives)
+	if lives < 0:
+		pass
+	elif lives == 0:
+		$spawner_time.stop()
+		$UI/start_next_wave.disabled = true
+		$UI/lives.text = "Lives: 0"
+		$"LevelBackground".playing = false
+		get_parent().add_child(gameover.instance())
+	else:
+		$UI/lives.text = "Lives: " +  str(lives)
 
 func _on_start_next_wave_pressed():
 	_on_spawner_time_timeout() 
@@ -109,11 +123,18 @@ func _on_start_next_wave_pressed():
 func _on_tower_pressed():
 	$tower_placement.clear()
 	can_place_tower = !can_place_tower
+	curr_tower = basic_tower
+
+func _on_bomb_tower_pressed():
+	$tower_placement.clear()
+	can_place_tower = !can_place_tower
+	curr_tower = bomb_tower
+
 	
 func _button_pressed(button_name):
 	match button_name:
 		"Music":
 			$"LevelBackground".volume_db = GlobalSettings.music
 
-func add_cash(cash) -> void:
-	pass
+func add_cash(money):
+	cash += money

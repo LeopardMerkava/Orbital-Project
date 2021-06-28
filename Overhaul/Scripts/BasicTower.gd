@@ -1,5 +1,7 @@
 extends Towers
 
+var cost = 5
+
 func _ready() -> void:
 	print("tower-Loaded")
 	.set_projectile(load("res://Projectiles/NormalProjectile.tscn"))

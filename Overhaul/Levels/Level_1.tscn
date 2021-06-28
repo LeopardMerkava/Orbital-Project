@@ -6,21 +6,21 @@
 [ext_resource path="res://Assets/Audio/Music/BG_1.mp3" type="AudioStream" id=4]
 [ext_resource path="res://Tilesets/nav.tres" type="TileSet" id=5]
 
-[sub_resource type="DynamicFontData" id=2]
+[sub_resource type="DynamicFontData" id=1]
 font_path = "res://Levels/Fonts/Pixeboy-z8XGD.ttf"
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=2]
 size = 30
-font_data = SubResource( 2 )
+font_data = SubResource( 1 )
 
-[sub_resource type="DynamicFontData" id=4]
+[sub_resource type="DynamicFontData" id=3]
 font_path = "res://Levels/Fonts/Pixeboy-z8XGD.ttf"
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=4]
 size = 30
-font_data = SubResource( 4 )
+font_data = SubResource( 3 )
 
-[sub_resource type="TileSet" id=1]
+[sub_resource type="TileSet" id=5]
 0/name = "tower_placement_tileset.png 0"
 0/texture = ExtResource( 3 )
 0/tex_offset = Vector2( 0, 0 )
@@ -105,7 +105,7 @@ margin_left = 24.0
 margin_top = 504.0
 margin_right = 132.0
 margin_bottom = 507.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 text = "Cash: 000"
 align = 1
 __meta__ = {
@@ -117,7 +117,7 @@ margin_left = 24.0
 margin_top = 536.0
 margin_right = 120.0
 margin_bottom = 554.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 4 )
 text = "Lives: 3"
 align = 1
 __meta__ = {
@@ -129,10 +129,37 @@ margin_left = 192.0
 margin_top = 496.0
 margin_right = 258.0
 margin_bottom = 560.0
-text = "Tower"
+text = "Basic Tower"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="cost" type="Label" parent="UI/tower"]
+margin_left = 24.0
+margin_top = 72.0
+margin_right = 64.0
+margin_bottom = 86.0
+text = "Cost: 5"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bomb_tower" type="Button" parent="UI"]
+margin_left = 328.0
+margin_top = 496.0
+margin_right = 420.0
+margin_bottom = 560.0
+text = "Bomb Tower"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="cost" type="Label" parent="UI/bomb_tower"]
+margin_left = 24.0
+margin_top = 72.0
+margin_right = 76.0
+margin_bottom = 86.0
+text = "Cost: 15"
 
 [node name="next_wave" type="Label" parent="UI"]
 margin_left = 904.0
@@ -177,7 +204,7 @@ __meta__ = {
 }
 
 [node name="tower_placement" type="TileMap" parent="."]
-tile_set = SubResource( 1 )
+tile_set = SubResource( 5 )
 cell_quadrant_size = 1
 format = 1
 
@@ -190,4 +217,5 @@ autoplay = true
 
 [connection signal="timeout" from="spawner_time" to="." method="_on_spawner_time_timeout"]
 [connection signal="pressed" from="UI/tower" to="." method="_on_tower_pressed"]
+[connection signal="pressed" from="UI/bomb_tower" to="." method="_on_bomb_tower_pressed"]
 [connection signal="pressed" from="UI/start_next_wave" to="." method="_on_start_next_wave_pressed"]

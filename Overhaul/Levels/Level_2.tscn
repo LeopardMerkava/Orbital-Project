@@ -1,21 +1,16 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Tilesets/tileset2.tres" type="TileSet" id=1]
-[ext_resource path="res://Scripts/Level_2_old.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Level_1.gd" type="Script" id=2]
 [ext_resource path="res://Assets/MapTiles/tower_placement_tileset.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Audio/Music/BG_1.mp3" type="AudioStream" id=4]
 [ext_resource path="res://Assets/MapTiles/SnowStraightRoad.png" type="Texture" id=5]
-[ext_resource path="res://Assets/MapTiles/SnowCurvedRoad.png" type="Texture" id=6]
 
-[sub_resource type="NavigationPolygon" id=1]
+[sub_resource type="NavigationPolygon" id=6]
 vertices = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
 polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 
-[sub_resource type="NavigationPolygon" id=2]
-vertices = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
-polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
-
-[sub_resource type="TileSet" id=3]
+[sub_resource type="TileSet" id=7]
 0/name = "SnowStraightRoad.png 0"
 0/texture = ExtResource( 5 )
 0/tex_offset = Vector2( 0, 0 )
@@ -24,30 +19,29 @@ polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 0/tile_mode = 0
 0/occluder_offset = Vector2( 0, 0 )
 0/navigation_offset = Vector2( 0, 0 )
-0/navigation = SubResource( 1 )
+0/navigation = SubResource( 6 )
 0/shape_offset = Vector2( 0, 0 )
 0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 0/shape_one_way = false
 0/shape_one_way_margin = 0.0
 0/shapes = [  ]
 0/z_index = 0
-1/name = "SnowCurvedRoad.png 1"
-1/texture = ExtResource( 6 )
-1/tex_offset = Vector2( 0, 0 )
-1/modulate = Color( 1, 1, 1, 1 )
-1/region = Rect2( 0, 0, 64, 64 )
-1/tile_mode = 0
-1/occluder_offset = Vector2( 0, 0 )
-1/navigation_offset = Vector2( 0, 0 )
-1/navigation = SubResource( 2 )
-1/shape_offset = Vector2( 0, 0 )
-1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-1/shape_one_way = false
-1/shape_one_way_margin = 0.0
-1/shapes = [  ]
-1/z_index = 0
 
-[sub_resource type="TileSet" id=4]
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://Levels/Fonts/Pixeboy-z8XGD.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+font_data = SubResource( 1 )
+
+[sub_resource type="DynamicFontData" id=3]
+font_path = "res://Levels/Fonts/Pixeboy-z8XGD.ttf"
+
+[sub_resource type="DynamicFont" id=4]
+size = 30
+font_data = SubResource( 3 )
+
+[sub_resource type="TileSet" id=5]
 0/name = "tower_placement_tileset.png 0"
 0/texture = ExtResource( 3 )
 0/tex_offset = Vector2( 0, 0 )
@@ -77,28 +71,33 @@ polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 1/shapes = [  ]
 1/z_index = 0
 
-[node name="Level_2" type="Node2D"]
+[node name="Level_1" type="Node2D"]
 script = ExtResource( 2 )
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2( 1, 1 )
 tile_set = ExtResource( 1 )
 cell_quadrant_size = 1
+cell_tile_origin = 1
+collision_layer = 0
+collision_mask = 0
 format = 1
-tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 65546, 0, 0, 65547, 0, 0, 65548, 0, 0, 65549, 0, 0, 65550, 0, 0, 65551, 0, 0, 65564, 2, 0, 65565, 2, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 131082, 0, 0, 131083, 0, 0, 131084, 0, 0, 131085, 0, 0, 131086, 0, 0, 131087, 0, 0, 131092, 2, 0, 131093, 2, 0, 131094, 2, 0, 131095, 2, 0, 131096, 2, 0, 131097, 2, 0, 131098, 2, 0, 131099, 2, 0, 131100, 2, 0, 131103, 2, 0, 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 196618, 0, 0, 196619, 0, 0, 196620, 0, 0, 196621, 0, 0, 196622, 0, 0, 196623, 0, 0, 196627, 2, 0, 196629, 2, 0, 196630, 2, 0, 196631, 2, 0, 196632, 2, 0, 196633, 2, 0, 196634, 2, 0, 196635, 2, 0, 196636, 2, 0, 196637, 2, 0, 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 262154, 0, 0, 262155, 0, 0, 262156, 0, 0, 262157, 0, 0, 262158, 0, 0, 262159, 0, 0, 262163, 2, 0, 262164, 2, 0, 262166, 2, 0, 262167, 2, 0, 262168, 2, 0, 262169, 2, 0, 262170, 2, 0, 262171, 2, 0, 262172, 2, 0, 262173, 2, 0, 262174, 2, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0, 327690, 0, 0, 327691, 0, 0, 327692, 0, 0, 327693, 0, 0, 327694, 0, 0, 327695, 0, 0, 327699, 2, 0, 327700, 2, 0, 327701, 2, 0, 327703, 2, 0, 327704, 2, 0, 327705, 2, 0, 327706, 2, 0, 327707, 2, 0, 327708, 2, 0, 327709, 2, 0, 327710, 2, 0, 393216, 0, 0, 393217, 0, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 393221, 0, 0, 393222, 0, 0, 393223, 0, 0, 393224, 0, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 0, 0, 393229, 0, 0, 393230, 0, 0, 393231, 0, 0, 458752, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458763, 0, 0, 458764, 0, 0, 458765, 0, 0, 458766, 0, 0, 458767, 0, 0, 458770, 2, 0, 458772, 2, 0, 458773, 2, 0, 458774, 2, 0, 458776, 2, 0, 458777, 2, 0, 458778, 2, 0, 458779, 2, 0, 458780, 2, 0, 458781, 2, 0, 458782, 2, 0, 524288, 0, 0, 524289, 2, 0, 524290, 2, 0, 524291, 2, 0, 524292, 2, 0, 524294, 2, 0, 524295, 2, 0, 524298, 0, 0, 524300, 0, 0, 524301, 0, 0, 524303, 0, 0, 524308, 2, 0, 524309, 2, 0, 524310, 2, 0, 524311, 2, 0, 524313, 2, 0, 524314, 2, 0, 524315, 2, 0, 524316, 2, 0, 524317, 2, 0, 524318, 2, 0, 589842, 2, 0, 589845, 2, 0, 589846, 2, 0, 589847, 2, 0, 589848, 2, 0, 589850, 2, 0, 589851, 2, 0, 589852, 2, 0, 589853, 2, 0, 589854, 2, 0, 655378, 5, 0, 655380, 5, 0, 655381, 5, 0, 655382, 5, 0, 655383, 2, 0, 655384, 2, 0, 655386, 2, 0, 655387, 2, 0, 655388, 2, 0, 655389, 2, 0, 720912, 2, 0, 720913, 2, 0, 720916, 2, 0, 720917, 2, 0, 720918, 2, 0, 720919, 5, 0, 720920, 5, 0, 720923, 5, 0, 720924, 5, 0, 720925, 2, 0, 720927, 2, 0, 786452, 2, 0, 786459, 2, 0, 786460, 2, 0, 786462, 5, 0, 786463, 5, 0, 786464, 5, 0, 851998, 2, 0, 851999, 2, 0, 917518, 2, 0, 917523, 2, 0, 917524, 2, 0, 917525, 2, 0, 917526, 2, 0, 917527, 2, 0, 917528, 2, 0, 917529, 2, 0, 917530, 2, 0, 917532, 2, 0, 917533, 2, 0, 917534, 2, 0, 917535, 2, 0 )
+tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 65546, 0, 0, 65547, 0, 0, 65548, 0, 0, 65549, 0, 0, 65550, 0, 0, 65551, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 131082, 0, 0, 131083, 0, 0, 131084, 0, 0, 131085, 0, 0, 131086, 0, 0, 131087, 0, 0, 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 196618, 0, 0, 196619, 0, 0, 196620, 0, 0, 196621, 0, 0, 196622, 0, 0, 196623, 0, 0, 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 262154, 0, 0, 262155, 0, 0, 262156, 0, 0, 262157, 0, 0, 262158, 0, 0, 262159, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0, 327690, 0, 0, 327691, 0, 0, 327692, 0, 0, 327693, 0, 0, 327694, 0, 0, 327695, 0, 0, 393216, 0, 0, 393217, 0, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 393221, 0, 0, 393222, 0, 0, 393223, 0, 0, 393224, 0, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 0, 0, 393229, 0, 0, 393230, 0, 0, 393231, 0, 0, 458752, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458763, 0, 0, 458764, 0, 0, 458765, 0, 0, 458766, 0, 0, 458767, 0, 0 )
 
 [node name="nav" type="Navigation2D" parent="."]
 
 [node name="tilemap_nav" type="TileMap" parent="nav"]
-tile_set = SubResource( 3 )
+tile_set = SubResource( 7 )
+cell_tile_origin = 1
+collision_layer = 0
+collision_mask = 0
 format = 1
-tile_data = PoolIntArray( 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, -1073741823, 0, 65544, 1610612737, 0, 65545, 1610612736, 0, 65546, 1610612736, 0, 65547, 1610612736, 0, 65548, 1610612736, 0, 65549, 1610612736, 0, 65550, -1073741823, 0, 131075, -1073741824, 0, 131080, -1610612736, 0, 131086, -1610612736, 0, 196611, -1073741824, 0, 196616, -1610612736, 0, 196622, -1610612735, 0, 196623, 0, 0, 262147, -1073741824, 0, 262152, -1610612736, 0, 327683, -1610612735, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 1, 0 )
 
 [node name="start" type="Position2D" parent="."]
 position = Vector2( 0, 96 )
 
 [node name="end" type="Position2D" parent="."]
-position = Vector2( 1024, 224 )
+position = Vector2( 1026.05, 221.708 )
 
 [node name="spawner_time" type="Timer" parent="."]
 one_shot = true
@@ -116,46 +115,78 @@ __meta__ = {
 margin_top = 480.0
 margin_right = 1024.0
 margin_bottom = 600.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="points" type="Label" parent="UI"]
-margin_left = 16.0
-margin_top = 496.0
-margin_right = 64.0
-margin_bottom = 512.0
-text = "Points:
-000"
+[node name="cash" type="Label" parent="UI"]
+anchor_bottom = 0.375
+margin_left = 24.0
+margin_top = 504.0
+margin_right = 132.0
+margin_bottom = 507.0
+custom_fonts/font = SubResource( 2 )
+text = "Cash: 000"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="lives" type="Label" parent="UI"]
-margin_left = 16.0
-margin_top = 544.0
-margin_right = 56.0
-margin_bottom = 575.0
-text = "Lives:
-100"
+margin_left = 24.0
+margin_top = 536.0
+margin_right = 120.0
+margin_bottom = 554.0
+custom_fonts/font = SubResource( 4 )
+text = "Lives: 3"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="tower" type="Button" parent="UI"]
-margin_left = 184.0
-margin_top = 504.0
-margin_right = 250.0
-margin_bottom = 568.0
-text = "Tower"
+margin_left = 192.0
+margin_top = 496.0
+margin_right = 258.0
+margin_bottom = 560.0
+text = "Basic Tower"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="cost" type="Label" parent="UI/tower"]
+margin_left = 24.0
+margin_top = 72.0
+margin_right = 64.0
+margin_bottom = 86.0
+text = "Cost: 5"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bomb_tower" type="Button" parent="UI"]
+margin_left = 328.0
+margin_top = 496.0
+margin_right = 420.0
+margin_bottom = 560.0
+text = "Bomb Tower"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="cost" type="Label" parent="UI/bomb_tower"]
+margin_left = 24.0
+margin_top = 72.0
+margin_right = 76.0
+margin_bottom = 86.0
+text = "Cost: 15"
 
 [node name="next_wave" type="Label" parent="UI"]
 margin_left = 904.0
 margin_top = 488.0
 margin_right = 973.0
 margin_bottom = 504.0
+rect_pivot_offset = Vector2( -48, 32 )
 text = "Next Wave"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -172,6 +203,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="wave" type="Label" parent="UI"]
+margin_left = 904.0
+margin_top = 568.0
+margin_right = 990.0
+margin_bottom = 582.0
+text = "Wave"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="start_next_wave" type="Button" parent="UI"]
 margin_left = 896.0
 margin_top = 536.0
@@ -183,16 +224,18 @@ __meta__ = {
 }
 
 [node name="tower_placement" type="TileMap" parent="."]
-tile_set = SubResource( 4 )
+tile_set = SubResource( 5 )
+cell_quadrant_size = 1
 format = 1
 
 [node name="LevelBackground" type="AudioStreamPlayer2D" parent="."]
 pause_mode = 2
 position = Vector2( 896, 536 )
 stream = ExtResource( 4 )
-volume_db = -30.0
+volume_db = -15.0
 autoplay = true
 
 [connection signal="timeout" from="spawner_time" to="." method="_on_spawner_time_timeout"]
 [connection signal="pressed" from="UI/tower" to="." method="_on_tower_pressed"]
+[connection signal="pressed" from="UI/bomb_tower" to="." method="_on_bomb_tower_pressed"]
 [connection signal="pressed" from="UI/start_next_wave" to="." method="_on_start_next_wave_pressed"]

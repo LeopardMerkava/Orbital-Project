@@ -70,7 +70,6 @@ func dealt_damage(damage):
 		
 	if health <= 0:
 		get_parent().get_parent().add_cash(cash)
-		speed = 0
 		#play death animation
 		anim_player.play(death_animation_name)
 	else:
