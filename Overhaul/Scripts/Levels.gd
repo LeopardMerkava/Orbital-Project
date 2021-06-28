@@ -1,6 +1,9 @@
 extends Node
 class_name Levels
 
+#Game Over
+var gameover = load("res://Menus/GameOver.tscn")
+
 #Spawner
 onready var spawner = load("res://Misc/Spawner.tscn")
 
@@ -13,7 +16,7 @@ var current_wave = 0
 var done_spawning = false
 
 #Stats var (used for HUD and such)
-export var lives = 100
+export var lives = 3
 export var cash = 10
 
 # Tower & Tower Placement Vars
@@ -33,6 +36,8 @@ func _ready():
 	
 	
 func _process(delta):
+	# set waves left
+	$UI/wave.text = "Wave " + str(int(current_wave))
 	# show the timer
 	$UI/next_wave_time.text = str(int($spawner_time.time_left))
 	# set music
@@ -95,7 +100,14 @@ func _on_spawner_time_timeout():
 	
 func lose_a_life():
 	lives -= 1
-	$UI/lives.text = "Lives: " +  str(lives)
+	if lives <= 0:
+		get_parent().add_child(gameover.instance())
+		$UI/lives.text = "Lives: 0"
+		$spawner_time.stop()
+		$UI/start_next_wave.disabled = true
+		$"LevelBackground".playing = false
+	else:
+		$UI/lives.text = "Lives: " +  str(lives)
 
 
 func _on_start_next_wave_pressed():

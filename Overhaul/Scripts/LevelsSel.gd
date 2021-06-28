@@ -30,7 +30,9 @@ func _on_Level_2_pressed():
 func _on_Level_3_pressed():
 	pass
 
-
 func _on_Back_pressed():
 	get_parent().add_child(MainMenu.instance())
 	queue_free()
+	
+func _physics_process(delta):
+	$"MainBackground".volume_db = GlobalSettings.music
