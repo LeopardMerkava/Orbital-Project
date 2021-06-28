@@ -20,7 +20,7 @@ export var lives = 3
 export var cash = 10
 
 # Tower & Tower Placement Vars
-onready var tower = preload("res://Towers/BombTower.tscn")
+onready var tower = preload("res://Towers/BasicTower.tscn")
 var can_place_tower = false
 var invalid_tile
 
@@ -100,15 +100,7 @@ func _on_spawner_time_timeout():
 	
 func lose_a_life():
 	lives -= 1
-	if lives <= 0:
-		get_parent().add_child(gameover.instance())
-		$UI/lives.text = "Lives: 0"
-		$spawner_time.stop()
-		$UI/start_next_wave.disabled = true
-		$"LevelBackground".playing = false
-	else:
-		$UI/lives.text = "Lives: " +  str(lives)
-
+	$UI/lives.text = "Lives: " +  str(lives)
 
 func _on_start_next_wave_pressed():
 	_on_spawner_time_timeout() 

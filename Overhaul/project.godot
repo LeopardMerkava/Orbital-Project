@@ -38,7 +38,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Renaissance"
+config/name="Defence of the Earth"
 run/main_scene="res://Menus/MainMenu.tscn"
 config/icon="res://icon.png"
 
