@@ -51,7 +51,7 @@ func move_along_path(distance):
 		if distance <= distance_to_next and distance > 0:
 			position = start_pos.linear_interpolate(path[0], distance / distance_to_next)
 			break
-		elif distance <= 0:
+		elif distance < 0:
 			position = path[0]
 			break
 		
@@ -70,6 +70,7 @@ func dealt_damage(damage):
 		
 	if health <= 0:
 		get_parent().get_parent().add_cash(cash)
+		speed = 0
 		#play death animation
 		anim_player.play(death_animation_name)
 		

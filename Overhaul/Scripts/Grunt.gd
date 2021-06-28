@@ -6,7 +6,6 @@ export var grunt_health = 2
 export var grunt_cash = 5
 
 func _ready() -> void:
-	print("call_Grunt")
 	#Set parent speed, health, and cash
 	speed = grunt_speed
 	health = grunt_health

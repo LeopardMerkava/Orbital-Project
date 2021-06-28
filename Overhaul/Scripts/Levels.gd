@@ -1,12 +1,23 @@
 extends Node
+class_name Levels
 
-onready var mob = preload("res://Enemies/Grunt.tscn")
+#Spawner
+onready var spawner = load("res://Misc/Spawner.tscn")
+
+#Mob list
+onready var mob = [preload("res://Enemies/Grunt.tscn")]
+
+#wave vars
+var wave_size = [[5], [7], [10]]
+var current_wave = 0
+var done_spawning = false
+
+#Stats var (used for HUD and such)
+export var lives = 100
+export var cash = 10
+
+# Tower & Tower Placement Vars
 onready var tower = preload("res://Towers/BombTower.tscn")
-
-var mobs_remaining = 0
-var lives = 100
-
-# Tower Placement Vars
 var can_place_tower = false
 var invalid_tile
 
@@ -14,7 +25,6 @@ var invalid_tile
 func _ready():
 	#start timer
 	$spawner_time.start(60)
-	mobs_remaining = 5
 	
 	$UI/lives.text = "Lives: " +  str(lives)
 	
@@ -60,36 +70,29 @@ func _unhandled_input(event):
 			$entities.add_child(tower_instance)
 
 func _on_spawner_time_timeout():
-	#Create instance of mob
-	var mob_instance = null
-	mob_instance = mob.instance()
-	mob_instance.connect("lose_a_life", self, "lose_a_life") 
-	
-	#Set start and end
-	mob_instance.position = $start.position
-	mob_instance.destination = $end.position
-	
-	#Set path
-	var path = $nav.get_simple_path($start.position, $end.position)
-	mob_instance.set_path(path)
-	
-	#Add mob to the container
-	$entities.add_child(mob_instance)
-	
+	#Stop timer (if using button)
+	$spawner_time.stop()
 	#disable next wave
 	$UI/start_next_wave.disabled = true
-	
-	mobs_remaining -= 1
-	if mobs_remaining > 0:
-		$spawner_time.start(1)
-	else:
-		# reset timer for next wave
-		$spawner_time.start(60)
-		# reset mobs remaining
-		mobs_remaining = 5
-		#enable next wave
-		$UI/start_next_wave.disabled = false
+		
+	#spawn spawner for every enemy in current list of this wave's enemy
+	for i in range (0, wave_size[current_wave].size(), 1):
+		var currspawner = spawner.instance()
+		add_child(currspawner)
+		var path = $nav.get_simple_path($start.position, $end.position)
+		var start_pos = $start.position
+		var destination = $end.position
+		currspawner.spawn(mob[i], 1, wave_size[current_wave][i], start_pos, destination, path)
+	current_wave += 1
 
+	if current_wave < wave_size.size():
+		$spawner_time.start(60)
+		#Wait 5 seconds before the button for next wave is usable
+		yield(get_tree().create_timer(5), "timeout")
+		$UI/start_next_wave.disabled = false
+	else:
+		done_spawning = true
+	
 func lose_a_life():
 	lives -= 1
 	$UI/lives.text = "Lives: " +  str(lives)
