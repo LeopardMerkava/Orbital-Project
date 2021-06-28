@@ -9,45 +9,50 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "PathFollow2D",
-"class": "Enemies",
+"base": "Node",
+"class": "Levels",
 "language": "GDScript",
-"path": "res://src/Enemies/Enemies.gd"
+"path": "res://Scripts/Levels.gd"
+}, {
+"base": "Area2D",
+"class": "Mob",
+"language": "GDScript",
+"path": "res://Scripts/mob.gd"
 }, {
 "base": "Area2D",
 "class": "Projectile",
 "language": "GDScript",
-"path": "res://src/Projectile/Projectile.gd"
+"path": "res://Scripts/Projectile.gd"
 }, {
 "base": "Area2D",
 "class": "Towers",
 "language": "GDScript",
-"path": "res://src/Towers/Towers.gd"
+"path": "res://Scripts/Towers.gd"
 } ]
 _global_script_class_icons={
-"Enemies": "",
+"Levels": "",
+"Mob": "",
 "Projectile": "",
 "Towers": ""
 }
 
 [application]
 
-config/name="Orbital"
-config/icon="res://src/icon.png"
+config/name="Defence of the Earth"
+run/main_scene="res://Menus/MainMenu.tscn"
+config/icon="res://icon.png"
 
 [autoload]
 
-GlobalSettings="*res://src/GlobalSettings.gd"
+GlobalSettings="*res://Scripts/global_settings.gd"
 
 [display]
 
-window/size/width=1280
-window/size/height=720
 window/size/resizable=false
 
 [input]
 
-click={
+mouseClick={
 "deadzone": 0.5,
 "events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
  ]
@@ -55,13 +60,10 @@ click={
 
 [layer_names]
 
-2d_render/layer_1="Enemy"
-2d_physics/layer_1="Enemy"
-2d_render/layer_2="Projectile"
+2d_physics/layer_1="Tower"
 2d_physics/layer_2="Projectile"
-2d_render/layer_3="Tower"
-2d_physics/layer_3="Tower"
-2d_physics/layer_4="Flying Enemy"
+2d_physics/layer_3="Enemies"
+2d_physics/layer_4="Flying"
 
 [physics]
 
@@ -69,4 +71,4 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
-environment/default_environment="res://src/default_env.tres"
+environment/default_environment="res://default_env.tres"
