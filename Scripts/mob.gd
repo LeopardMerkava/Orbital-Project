@@ -67,7 +67,7 @@ func set_path(new_path):
 func dealt_damage(damage):
 	#Play damaged animation
 	health -= damage
-	if health <= 0:
+	if health <= 0 :
 		get_parent().get_parent().add_cash(cash)
 		#play death animation
 		anim_player.play(death_animation_name)

@@ -12,7 +12,6 @@ func _on_Return_pressed():
 	queue_free()
 
 
-
 func _on_Reset_pressed():
 	get_parent().add_child(LevelSelect.instance())
 	queue_free()
