@@ -1,9 +1,5 @@
 extends MarginContainer
 
-var lvlOne =  load("res://Levels/Level_1.tscn")
-var levels = load("res://Menus/LevelsSel.tscn")
-var options = load("res://Menus/Options.tscn")
-
 # Selectors
 onready var selectorOne = $CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer/Selector
 onready var selectorTwo = $CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer/Selector
@@ -43,13 +39,13 @@ func _process(delta):
 
 func handle_selection(_current_selection):
 	if _current_selection == 0:
-		get_parent().add_child(lvlOne.instance())
+		get_tree().change_scene("res://Levels/Level_1.tscn")
 		queue_free()
 	elif _current_selection == 1:
-		get_parent().add_child(levels.instance())
+		get_tree().change_scene("res://Menus/LevelsSel.tscn")
 		queue_free()
 	elif _current_selection == 2:
-		get_parent().add_child(options.instance())
+		get_tree().change_scene("res://Menus/Options.tscn")
 		queue_free()
 	elif _current_selection == 3:
 		get_tree().quit()

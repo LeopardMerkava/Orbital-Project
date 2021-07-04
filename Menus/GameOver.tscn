@@ -69,11 +69,13 @@ __meta__ = {
 }
 
 [node name="Reset" type="Button" parent="Background"]
+anchor_top = -0.00172287
+anchor_bottom = -0.00172287
 margin_left = 120.0
 margin_top = 192.0
 margin_right = 240.0
 margin_bottom = 248.0
-text = "To Level Select"
+text = "Level Select"
 __meta__ = {
 "_edit_use_anchors_": false
 }

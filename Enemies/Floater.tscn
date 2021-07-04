@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/Grunt.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Images/Enemies/Enemy_Floater_Side.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Audio/SFX/GRUNT_SFX.wav" type="AudioStream" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 24, 27.2534 )
+
+[node name="Floater" type="Area2D" groups=[
+"Enemies",
+]]
+monitoring = false
+collision_layer = 4
+collision_mask = 0
+script = ExtResource( 1 )
+grunt_speed = 100
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -4.04495, 5.48671 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=[
+"Enemies",
+]]
+position = Vector2( 0.046032, 0.0522499 )
+shape = SubResource( 1 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )

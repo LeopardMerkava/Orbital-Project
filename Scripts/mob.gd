@@ -29,7 +29,7 @@ func _ready():
 func _on_ready():
 	speed *= GlobalSettings._get_speed_mult() 
 	health *= GlobalSettings._get_health_mult()
-	mob.play(move_animation_name)
+	# mob.play(move_animation_name)
 	
 func _physics_process(delta):
 	if path.size() > 0:
