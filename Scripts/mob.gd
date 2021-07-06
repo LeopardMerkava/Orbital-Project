@@ -14,6 +14,7 @@ signal lose_a_life
 var speed : int
 var health : int
 var cash : int
+var death = false
 
 func set_mob(mob_node : Node) -> void:
 	mob = mob_node
@@ -67,10 +68,14 @@ func set_path(new_path):
 func dealt_damage(damage):
 	#Play damaged animation
 	health -= damage
-	if health <= 0 :
+	if health <= 0 and !death:
 		get_parent().get_parent().add_cash(cash)
 		#play death animation
 		anim_player.play(death_animation_name)
+		death = true
+		GlobalSettings.deadite += 1
+		yield(anim_player, "animation_finished")
+		queue_free()
 	else:
 		anim_player.play(hit_animation_name)
 

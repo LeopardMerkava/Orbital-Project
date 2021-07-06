@@ -215,11 +215,7 @@ stream = ExtResource( 4 )
 volume_db = -15.0
 autoplay = true
 
-[node name="cheat_vic_timer" type="Timer" parent="."]
-wait_time = 20.0
-
 [connection signal="timeout" from="spawner_time" to="." method="_on_spawner_time_timeout"]
 [connection signal="pressed" from="UI/tower" to="." method="_on_tower_pressed"]
 [connection signal="pressed" from="UI/bomb_tower" to="." method="_on_bomb_tower_pressed"]
 [connection signal="pressed" from="UI/start_next_wave" to="." method="_on_start_next_wave_pressed"]
-[connection signal="timeout" from="cheat_vic_timer" to="." method="_on_cheat_vic_timer_timeout"]

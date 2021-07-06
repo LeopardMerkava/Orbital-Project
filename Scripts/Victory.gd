@@ -8,10 +8,10 @@ func _ready():
 	pass # Replace with function body.
 
 func _on_Return_pressed():
-	get_parent().add_child(MainMenu.instance())
+	get_tree().change_scene("res://Menus/MainMenu.tscn")
 	queue_free()
 
 
 func _on_Reset_pressed():
-	get_parent().add_child(LevelSelect.instance())
+	get_tree().change_scene("res://Menus/LevelsSel.tscn")
 	queue_free()

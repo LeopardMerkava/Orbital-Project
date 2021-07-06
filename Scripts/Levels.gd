@@ -3,6 +3,7 @@ class_name Levels
 
 #Pause
 var PauseScreen = load("res://Menus/Pause.tscn")
+var paused = false
 
 #Game Over
 var gameover = load("res://Menus/GameOver.tscn")
@@ -16,11 +17,13 @@ onready var mob = [preload("res://Enemies/Grunt.tscn")]
 
 #wave vars
 var wave_size = [[5], [7], [10]]
+var enemies = 5 + 7 + 10
 var current_wave = 0
 var done_spawning = false
 
 #Stats var (used for HUD and such)
 export var lives = 3
+var originalLives = lives
 export var cash = 10
 
 
@@ -32,13 +35,13 @@ var invalid_tile
 var curr_tower
 
 # Victory Conditions [Under Construction]
-var victory = load("res://Menus/Victory.tscn")
-var victory2 = false
+var victory_screen = load("res://Menus/Victory.tscn")
+var areyouwinningson = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#add pause menu
-	get_parent().add_child(PauseScreen.instance())
+	#reset dead counter
+	GlobalSettings.deadite = 0
 	#start timer
 	$spawner_time.start(60)
 	$UI/lives.text = "Lives: " +  str(lives)
@@ -47,8 +50,11 @@ func _ready():
 	
 
 func _input(event):
-	if event.is_action_pressed("pause"):
+	# Add pause menu
+	if event.is_action_pressed("pause") and !paused:
 		get_parent().add_child(PauseScreen.instance())
+		get_tree().paused = true
+		paused = true
 	
 func _process(delta):
 	# set waves left
@@ -59,6 +65,8 @@ func _process(delta):
 	$"LevelBackground".volume_db = GlobalSettings.music
 	# Show cash
 	$UI/cash.text = "Cash: " + str(cash)
+	# Test for Victory
+	victory()
 
 	
 func _unhandled_input(event):
@@ -116,7 +124,6 @@ func _on_spawner_time_timeout():
 		$UI/start_next_wave.disabled = false
 	else:
 		done_spawning = true
-		$cheat_vic_timer.start(15)
 	
 func lose_a_life():
 	lives -= 1
@@ -155,12 +162,7 @@ func _button_pressed(button_name):
 func add_cash(money):
 	cash += money
 	
-func _on_cheat_vic_timer_timeout():
-	if gameoverbool == false and victory2 == false:
-		victory()
-
 func victory():
-	victory2 = true
-	$"LevelBackground".playing = false
-	GlobalSettings.unlockedlevels.append(2)
-	get_parent().add_child(victory.instance())
+	if done_spawning == true and gameoverbool == false:
+		if enemies == GlobalSettings.deadite + (originalLives - lives):
+			areyouwinningson = true
