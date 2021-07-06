@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/MainMenu.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Audio/Music/MENU_MUSIC.mp3" type="AudioStream" id=2]
+[ext_resource path="res://Assets/Audio/Music/DJAMH_MainMenu2.mp3" type="AudioStream" id=2]
 [ext_resource path="res://Menus/Images/Webp.net-resizeimage.jpg" type="Texture" id=3]
 [ext_resource path="res://Menus/Fonts/SpaceRave-6YE1M.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://Menus/Fonts/Pixeboy-z8XGD.ttf" type="DynamicFontData" id=5]

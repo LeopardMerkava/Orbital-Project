@@ -46,7 +46,7 @@ func _ready():
 	$spawner_time.start(60)
 	$UI/lives.text = "Lives: " +  str(lives)
 	# Towers cannot be placed on these tiles
-	invalid_tile = $nav/tilemap_nav.get_used_cells()
+	invalid_tile = $nav/tilemap_nav.get_used_cells() + $unplacable.get_used_cells()
 	
 
 func _input(event):

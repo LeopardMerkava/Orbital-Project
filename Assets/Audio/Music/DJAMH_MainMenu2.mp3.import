@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/DJAMH_MainMenu2.mp3-fbffa9d4f518eaf1903f3372c7f83727.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/Music/DJAMH_MainMenu2.mp3"
+dest_files=[ "res://.import/DJAMH_MainMenu2.mp3-fbffa9d4f518eaf1903f3372c7f83727.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

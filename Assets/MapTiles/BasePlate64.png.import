@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Map_BasePlaces.png-194c8afe4fc1e1379a26db4dcffe585a.stex"
+path="res://.import/BasePlate64.png-8b4efab6d15a6077f11d167c5390ec5b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/MapTiles/Map_BasePlaces.png"
-dest_files=[ "res://.import/Map_BasePlaces.png-194c8afe4fc1e1379a26db4dcffe585a.stex" ]
+source_file="res://Assets/MapTiles/BasePlate64.png"
+dest_files=[ "res://.import/BasePlate64.png-8b4efab6d15a6077f11d167c5390ec5b.stex" ]
 
 [params]
 

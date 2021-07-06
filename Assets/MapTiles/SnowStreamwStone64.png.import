@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Map_BasePlace_Fixed.png-142b3a3fbea406576009940e0155a37d.stex"
+path="res://.import/SnowStreamwStone64.png-e9669da79968cc7422a3b485a4a0bded.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/MapTiles/Map_BasePlace_Fixed.png"
-dest_files=[ "res://.import/Map_BasePlace_Fixed.png-142b3a3fbea406576009940e0155a37d.stex" ]
+source_file="res://Assets/MapTiles/SnowStreamwStone64.png"
+dest_files=[ "res://.import/SnowStreamwStone64.png-e9669da79968cc7422a3b485a4a0bded.stex" ]
 
 [params]
 
