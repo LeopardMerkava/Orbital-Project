@@ -1,6 +1,9 @@
 extends Node
 class_name Levels
 
+#Pause
+var PauseScreen = load("res://Menus/Pause.tscn")
+
 #Game Over
 var gameover = load("res://Menus/GameOver.tscn")
 var gameoverbool = false
@@ -34,12 +37,18 @@ var victory2 = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#add pause menu
+	get_parent().add_child(PauseScreen.instance())
 	#start timer
 	$spawner_time.start(60)
 	$UI/lives.text = "Lives: " +  str(lives)
 	# Towers cannot be placed on these tiles
 	invalid_tile = $nav/tilemap_nav.get_used_cells()
 	
+
+func _input(event):
+	if event.is_action_pressed("pause"):
+		get_parent().add_child(PauseScreen.instance())
 	
 func _process(delta):
 	# set waves left
