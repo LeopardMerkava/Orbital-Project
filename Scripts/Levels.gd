@@ -34,9 +34,9 @@ var can_place_tower = false
 var invalid_tile
 var curr_tower
 
-# Victory Conditions [Under Construction]
+# Victory Conditions
 var victory_screen = load("res://Menus/Victory.tscn")
-var areyouwinningson = false
+var are_you_winning_son = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -165,4 +165,4 @@ func add_cash(money):
 func victory():
 	if done_spawning == true and gameoverbool == false:
 		if enemies == GlobalSettings.deadite + (originalLives - lives):
-			areyouwinningson = true
+			are_you_winning_son = true
