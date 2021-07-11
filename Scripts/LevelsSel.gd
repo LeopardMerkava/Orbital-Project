@@ -30,6 +30,6 @@ func _on_Level_3_pressed():
 func _on_Back_pressed():
 	get_tree().change_scene("res://Menus/MainMenu.tscn")
 	queue_free()
-	
+
 func _physics_process(delta):
 	$"MainBackground".volume_db = GlobalSettings.music

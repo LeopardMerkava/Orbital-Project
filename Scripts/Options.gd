@@ -31,6 +31,6 @@ func _on_MusicSlider_value_changed(value):
 
 func _on_SFXSlider_value_changed(value):
 	GlobalSettings.sfx = value
-
+	
 func _physics_process(delta):
 	$"OptionsBackground".volume_db = GlobalSettings.music
