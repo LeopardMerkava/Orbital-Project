@@ -7,11 +7,11 @@ func _ready():
 func _on_Return_pressed():
 	get_tree().change_scene("res://Menus/MainMenu.tscn")
 	queue_free()
-	GlobalSettings.areyawinningson = false
+	GlobalSettings.are_you_winning_son = false
 	GlobalSettings.deadite = 0
 
 func _on_Reset_pressed():
 	get_tree().change_scene("res://Menus/LevelsSel.tscn")
 	queue_free()
-	GlobalSettings.areyawinningson = false
+	GlobalSettings.are_you_winning_son = false
 	GlobalSettings.deadite = 0

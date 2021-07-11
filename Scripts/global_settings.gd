@@ -7,7 +7,7 @@ var damage_multiplier = 1.0
 var cost_multiplier = 1.0
 var victory_condition
 var deadite
-var areyawinningson = false
+var are_you_winning_son = false
 
 func _get_speed_mult():
 	return speed_multiplier
