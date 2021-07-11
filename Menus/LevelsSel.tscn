@@ -92,7 +92,7 @@ margin_right = 766.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 150, 100 )
 disabled = true
-text = "Level 3"
+text = "Desert, Egypt"
 
 [node name="CenterContainer3" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
 margin_top = 272.0

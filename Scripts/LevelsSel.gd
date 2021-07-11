@@ -24,7 +24,8 @@ func _on_Level_2_pressed():
 	queue_free()
 
 func _on_Level_3_pressed():
-	pass
+	get_tree().change_scene("res://Levels/Level_3.tscn")
+	queue_free()
 
 func _on_Back_pressed():
 	get_tree().change_scene("res://Menus/MainMenu.tscn")
