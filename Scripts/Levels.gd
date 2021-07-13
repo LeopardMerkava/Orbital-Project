@@ -36,7 +36,7 @@ var curr_tower
 
 # Victory Conditions
 var victory_screen = load("res://Menus/Victory.tscn")
-
+var next_level : int
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -165,4 +165,9 @@ func add_cash(money):
 func victory():
 	if done_spawning == true and gameoverbool == false:
 		if enemies == GlobalSettings.deadite + (originalLives - lives):
+			
 			GlobalSettings.are_you_winning_son = true
+			$"LevelBackground".playing = false
+			GlobalSettings.unlockedlevels.append(next_level)
+			get_parent().add_child(victory_screen.instance())
+			
