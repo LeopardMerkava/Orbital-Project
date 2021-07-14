@@ -38,6 +38,9 @@ var curr_tower
 var victory_screen = load("res://Menus/Victory.tscn")
 var next_level : int
 
+# Win Game
+var win_screen = load("res://Menus/Win.tscn")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#reset dead counter
@@ -168,6 +171,9 @@ func victory():
 			
 			GlobalSettings.are_you_winning_son = true
 			$"LevelBackground".playing = false
-			GlobalSettings.unlockedlevels.append(next_level)
-			get_parent().add_child(victory_screen.instance())
+			if (next_level == 4):
+				get_parent().add_child(win_screen.instance())
+			else:
+				GlobalSettings.unlockedlevels.append(next_level)
+				get_parent().add_child(victory_screen.instance())
 			
