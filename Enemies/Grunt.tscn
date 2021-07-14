@@ -4,39 +4,39 @@
 [ext_resource path="res://Assets/Images/Enemies/Grunt_Animated.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Audio/SFX/GRUNT_SFX.wav" type="AudioStream" id=3]
 
-[sub_resource type="AtlasTexture" id=1]
+[sub_resource type="AtlasTexture" id=5]
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 80, 80 )
 
-[sub_resource type="AtlasTexture" id=2]
+[sub_resource type="AtlasTexture" id=6]
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 80, 0, 80, 80 )
 
-[sub_resource type="AtlasTexture" id=3]
+[sub_resource type="AtlasTexture" id=7]
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 160, 0, 80, 80 )
 
-[sub_resource type="AtlasTexture" id=4]
+[sub_resource type="AtlasTexture" id=8]
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 240, 0, 80, 80 )
 
-[sub_resource type="SpriteFrames" id=5]
+[sub_resource type="SpriteFrames" id=9]
 animations = [ {
-"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
+"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
 "loop": true,
 "name": "Move",
 "speed": 5.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=6]
+[sub_resource type="CapsuleShape2D" id=10]
 radius = 14.5434
 height = 24.4761
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=2]
 resource_name = "Death"
 length = 0.6
 tracks/0/type = "value"
@@ -102,10 +102,10 @@ tracks/4/keys = {
 "values": [ 0.0, 90.0 ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=3]
 resource_name = "Default"
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=4]
 length = 0.6
 tracks/0/type = "value"
 tracks/0/path = NodePath("AudioStreamPlayer:playing")
@@ -156,7 +156,7 @@ grunt_speed = 100
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." groups=[
 "Enemies",
 ]]
-frames = SubResource( 5 )
+frames = SubResource( 9 )
 animation = "Move"
 flip_h = true
 
@@ -164,12 +164,12 @@ flip_h = true
 "Enemies",
 ]]
 position = Vector2( -2.77795, 0.793701 )
-shape = SubResource( 6 )
+shape = SubResource( 10 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Death = SubResource( 7 )
-anims/Default = SubResource( 8 )
-anims/Hit = SubResource( 9 )
+anims/Death = SubResource( 2 )
+anims/Default = SubResource( 3 )
+anims/Hit = SubResource( 4 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )

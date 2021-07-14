@@ -16,7 +16,6 @@ func _on_Tower_Range_area_exited(area):
 		enemy_array.erase(area)
 		if current_target and area == current_target.get_ref():
 			current_target = null
-			$Fire.stop()
 
 func _physics_process(delta):
 	if enemy_array.size() == 0:
@@ -24,18 +23,17 @@ func _physics_process(delta):
 	elif !current_target:
 		current_target = weakref(enemy_array[0])
 		target_position = enemy_array[0].get_global_transform().origin
-		if current_target:
-			$Fire.start()
 	else:
 		if (!current_target.get_ref()):
 			current_target = null
-			$Fire.stop()
 		else:
 			target_position = current_target.get_ref().get_global_transform().origin
 			$"TowerTurret".rotation = (target_position - position).angle() + deg2rad(90)
 
 func _on_Fire_timeout():
-	if current_target.get_ref():
+	if !current_target:
+		pass
+	elif current_target.get_ref():
 		$"TowerTurret".play("Fire")
 		var instance
 		instance = projectile.instance()

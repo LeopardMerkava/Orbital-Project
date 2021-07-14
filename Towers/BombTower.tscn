@@ -56,6 +56,7 @@ position = Vector2( 6.64413e-06, -38 )
 shape = SubResource( 3 )
 
 [node name="Fire" type="Timer" parent="."]
+autostart = true
 
 [node name="TowerRange" type="Area2D" parent="."]
 monitorable = false

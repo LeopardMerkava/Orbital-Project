@@ -16,8 +16,6 @@ func spawn(enemy, delay, amount, start_position, end_position, path):
 	enemy_dest = end_position
 	enemy_path = path
 	
-	
-	print("reach_spawn")
 	#Start spawning first enemy 1 second after spawner is created, then set to
 	#delay
 	$Timer.start(1)

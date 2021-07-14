@@ -2,7 +2,7 @@ extends Mob
 
 #Health, speed, and cash 
 export var grunt_speed = 10
-export var grunt_health = 2
+export var grunt_health = 4
 export var grunt_cash = 5
 
 func _ready() -> void:
