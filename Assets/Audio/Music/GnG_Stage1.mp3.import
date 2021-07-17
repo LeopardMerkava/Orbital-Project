@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/GnG_Stage1.mp3-06a2398915bd1564dbd39c1575a50a59.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/Music/GnG_Stage1.mp3"
+dest_files=[ "res://.import/GnG_Stage1.mp3-06a2398915bd1564dbd39c1575a50a59.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
