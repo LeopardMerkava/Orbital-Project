@@ -4,7 +4,7 @@
 [ext_resource path="res://Assets/Images/Enemies/Enemy_Floater_Side.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Audio/SFX/FLOATER_SFX.wav" type="AudioStream" id=3]
 
-[sub_resource type="SpriteFrames" id=5]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
@@ -12,11 +12,10 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 24, 27.2534 )
 
-[sub_resource type="Animation" id=2]
-resource_name = "Death"
+[sub_resource type="Animation" id=3]
 length = 0.6
 tracks/0/type = "value"
 tracks/0/path = NodePath("AudioStreamPlayer:playing")
@@ -81,10 +80,9 @@ tracks/4/keys = {
 "values": [ 0.0, 90.0 ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "Default"
-
 [sub_resource type="Animation" id=4]
+
+[sub_resource type="Animation" id=5]
 length = 0.6
 tracks/0/type = "value"
 tracks/0/path = NodePath("AudioStreamPlayer:playing")
@@ -127,24 +125,24 @@ tracks/2/keys = {
 "Enemies",
 ]]
 monitoring = false
-collision_layer = 4
+collision_layer = 8
 collision_mask = 0
 script = ExtResource( 1 )
 grunt_speed = 100
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-frames = SubResource( 5 )
+frames = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=[
 "Enemies",
 ]]
 position = Vector2( 2.71872, -3.95679 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Death = SubResource( 2 )
-anims/Default = SubResource( 3 )
-anims/Hit = SubResource( 4 )
+anims/Death = SubResource( 3 )
+anims/Default = SubResource( 4 )
+anims/Hit = SubResource( 5 )

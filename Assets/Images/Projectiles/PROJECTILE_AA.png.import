@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/TOWER_BOMB_DOWN.png-d24aa2e517948682965b9ede9afab1be.stex"
+path="res://.import/PROJECTILE_AA.png-5f7a42d3c5a336acda6263ac58535c0d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/Towers/TOWER_BOMB_DOWN.png"
-dest_files=[ "res://.import/TOWER_BOMB_DOWN.png-d24aa2e517948682965b9ede9afab1be.stex" ]
+source_file="res://Assets/Images/Projectiles/PROJECTILE_AA.png"
+dest_files=[ "res://.import/PROJECTILE_AA.png-5f7a42d3c5a336acda6263ac58535c0d.stex" ]
 
 [params]
 

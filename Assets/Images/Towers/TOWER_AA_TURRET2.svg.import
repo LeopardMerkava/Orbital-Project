@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/TOWER_AA_RIGHT.png-ac94dc42af428f193b5ef07d5a460fb2.stex"
+path="res://.import/TOWER_AA_TURRET2.svg-6114fe39db8b87b4c44eb07a4ff96d32.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/Towers/TOWER_AA_RIGHT.png"
-dest_files=[ "res://.import/TOWER_AA_RIGHT.png-ac94dc42af428f193b5ef07d5a460fb2.stex" ]
+source_file="res://Assets/Images/Towers/TOWER_AA_TURRET2.svg"
+dest_files=[ "res://.import/TOWER_AA_TURRET2.svg-6114fe39db8b87b4c44eb07a4ff96d32.stex" ]
 
 [params]
 
