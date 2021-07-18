@@ -4,7 +4,8 @@ extends MarginContainer
 onready var selectorOne = $CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer/Selector
 onready var selectorTwo = $CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer/Selector
 onready var selectorThree = $CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer3/HBoxContainer/Selector
-onready var selectorFour = $CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer4/HBoxContainer/Selector
+onready var selectorFour = $"CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer5/HBoxContainer/Selector"
+onready var selectorFive = $"CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer4/HBoxContainer/Selector"
 
 var currentSelection = 0
 
@@ -13,6 +14,7 @@ func set_current_selection(_current_selection):
 	selectorTwo.text = ""
 	selectorThree.text = ""
 	selectorFour.text = ""
+	selectorFive.text = ""
 	if _current_selection == 0:
 		selectorOne.text = ">"
 	elif _current_selection == 1:
@@ -21,18 +23,20 @@ func set_current_selection(_current_selection):
 		selectorThree.text = ">"
 	elif _current_selection == 3:
 		selectorFour.text = ">"
+	elif _current_selection == 4:
+		selectorFive.text = ">"
 		
 # Inputs
 func _process(delta):
 	if Input.is_action_just_pressed("ui_down"):
 		currentSelection += 1
-		if currentSelection >= 4:
+		if currentSelection >= 5:
 			currentSelection = 0
 		set_current_selection(currentSelection)
 	elif Input.is_action_just_pressed("ui_up"):
 		currentSelection -= 1
 		if currentSelection <= -1:
-			currentSelection = 3
+			currentSelection = 4
 		set_current_selection(currentSelection)
 	elif Input.is_action_just_pressed("ui_accept"):
 		handle_selection(currentSelection)
@@ -48,6 +52,9 @@ func handle_selection(_current_selection):
 		get_tree().change_scene("res://Menus/Options.tscn")
 		queue_free()
 	elif _current_selection == 3:
+		get_tree().change_scene("res://Menus/Credits.tscn")
+		queue_free()
+	elif _current_selection == 4:
 		get_tree().quit()
 
 # Called when the node enters the scene tree for the first time.
