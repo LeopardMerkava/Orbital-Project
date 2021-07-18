@@ -4,7 +4,7 @@
 [ext_resource path="res://Assets/Images/Towers/TOWER_AA_BASE.svg" type="Texture" id=2]
 [ext_resource path="res://Assets/Images/Towers/TOWER_AA_TURRET1.svg" type="Texture" id=3]
 [ext_resource path="res://Assets/Images/Towers/TOWER_SENTRY_V2_TURRET1.png" type="Texture" id=4]
-[ext_resource path="res://Towers/AATower.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/AATower.gd" type="Script" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 32 )

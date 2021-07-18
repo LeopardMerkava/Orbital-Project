@@ -1,6 +1,6 @@
 extends Towers
 
-var cost = 5
+var cost = 10
 
 func _ready() -> void:
 	.set_projectile(load("res://Projectiles/AAProjectile.tscn"))
