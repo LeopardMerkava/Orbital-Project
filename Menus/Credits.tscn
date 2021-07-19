@@ -35,19 +35,19 @@ margin_right = 1024.0
 margin_bottom = 600.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-margin_left = 205.0
+margin_left = 217.0
 margin_top = 37.0
-margin_right = 819.0
+margin_right = 806.0
 margin_bottom = 562.0
 custom_constants/separation = 50
 
 [node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
-margin_right = 614.0
+margin_right = 589.0
 margin_bottom = 72.0
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer"]
-margin_left = 191.0
-margin_right = 422.0
+margin_left = 179.0
+margin_right = 410.0
 margin_bottom = 72.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.666667, 0.933333, 0.572549, 1 )
@@ -57,25 +57,25 @@ uppercase = true
 
 [node name="CenterContainer2" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
 margin_top = 122.0
-margin_right = 614.0
+margin_right = 589.0
 margin_bottom = 442.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2"]
-margin_right = 614.0
+margin_right = 589.0
 margin_bottom = 320.0
 
 [node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
-margin_right = 614.0
+margin_right = 589.0
 margin_bottom = 320.0
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer"]
-margin_right = 614.0
+margin_right = 589.0
 margin_bottom = 320.0
 text = "Game Created by Andrew Baruch and Alexander Er
 Made with Godot Engine.
 
 This game has been made for educational purposes only.
-We would to disclaim that some of our properties have built upon other intellectural properties.
+We would to disclaim that some of our assets have built upon other intellectural properties.
 
 We would like to credit and thank them.
 
@@ -94,12 +94,12 @@ align = 1
 
 [node name="CenterContainer4" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
 margin_top = 492.0
-margin_right = 614.0
+margin_right = 589.0
 margin_bottom = 525.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer4"]
-margin_left = 187.0
-margin_right = 426.0
+margin_left = 175.0
+margin_right = 414.0
 margin_bottom = 33.0
 
 [node name="Exit" type="Button" parent="CenterContainer/VBoxContainer/CenterContainer4/HBoxContainer"]
