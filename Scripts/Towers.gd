@@ -9,11 +9,11 @@ onready var projectile : PackedScene setget set_projectile
 
 func _on_Tower_Range_area_entered(area):
 	if area.is_in_group("Enemies"):
-		enemy_array.append(area)
+		enemy_array.append([area, area.id])
 
 func _on_Tower_Range_area_exited(area):
 	if area.is_in_group("Enemies"):
-		enemy_array.erase(area)
+		enemy_array.erase([area, area.id])
 		if current_target and area == current_target.get_ref():
 			current_target = null
 
@@ -21,8 +21,8 @@ func _physics_process(delta):
 	if enemy_array.size() == 0:
 		pass
 	elif !current_target:
-		current_target = weakref(enemy_array[0])
-		target_position = enemy_array[0].get_global_transform().origin
+		current_target = weakref(enemy_array[0][0])
+		target_position = enemy_array[0][0].get_global_transform().origin
 	else:
 		if (!current_target.get_ref()):
 			current_target = null

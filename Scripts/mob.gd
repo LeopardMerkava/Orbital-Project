@@ -4,6 +4,7 @@ class_name Mob
 # AnimatedSprite
 onready var mob : Node setget set_mob
 onready var move_animation_name : String
+
 # AnimationPlayer 
 onready var anim_player : Node setget set_anim_player
 onready var hit_animation_name : String
@@ -15,6 +16,8 @@ var speed : int
 var health : int
 var cash : int
 var death = false
+
+onready var healthbar = $HealthBar
 
 func set_mob(mob_node : Node) -> void:
 	mob = mob_node
@@ -30,6 +33,7 @@ func _ready():
 func _on_ready():
 	speed *= GlobalSettings._get_speed_mult() 
 	health *= GlobalSettings._get_health_mult()
+	healthbar._set_max(health)
 	#mob.play(move_animation_name)
 	
 func _physics_process(delta):
@@ -68,6 +72,7 @@ func set_path(new_path):
 func dealt_damage(damage):
 	#Play damaged animation
 	health -= damage
+	healthbar.update_healthbar(health)
 	if health <= 0 and !death:
 		get_parent().get_parent().add_cash(cash)
 		#play death animation

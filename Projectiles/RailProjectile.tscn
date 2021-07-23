@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/RailProjectile.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Images/Projectiles/PROJECTILE_RAIL.png" type="Texture" id=2]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "dealdamage",
+"speed": 20.0
+} ]
+
+[node name="Area2D" type="Area2D" groups=[
+"Projectile",
+]]
+collision_layer = 2
+collision_mask = 12
+script = ExtResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." groups=[
+"Projectile",
+]]
+frames = SubResource( 1 )
+animation = "dealdamage"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." groups=[
+"Projectile",
+]]
+position = Vector2( 0.90625, 0.0585251 )
+polygon = PoolVector2Array( -5.90301, -4.06444, 2.10357, -4.15809, 6.34375, -0.0272751, 2.43133, 4.03578, -5.94983, 4.03578 )
+
+[connection signal="area_entered" from="." to="." method="_on_Area2D_area_entered"]

@@ -1,43 +1,46 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scripts/Grunt.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Images/Enemies/Grunt_Animated.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Audio/SFX/GRUNT_SFX.wav" type="AudioStream" id=3]
+[ext_resource path="res://Assets/Shapes/HEALTH_BAR.PNG" type="Texture" id=4]
+[ext_resource path="res://Assets/Shapes/HEALTH_BAR_BG.PNG" type="Texture" id=5]
+[ext_resource path="res://Scripts/HealthBar.gd" type="Script" id=6]
+[ext_resource path="res://Assets/Audio/SFX/GRUNT_HIT.wav" type="AudioStream" id=7]
 
-[sub_resource type="AtlasTexture" id=5]
+[sub_resource type="AtlasTexture" id=1]
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 80, 80 )
 
-[sub_resource type="AtlasTexture" id=6]
+[sub_resource type="AtlasTexture" id=2]
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 80, 0, 80, 80 )
 
-[sub_resource type="AtlasTexture" id=7]
+[sub_resource type="AtlasTexture" id=3]
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 160, 0, 80, 80 )
 
-[sub_resource type="AtlasTexture" id=8]
+[sub_resource type="AtlasTexture" id=4]
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 240, 0, 80, 80 )
 
-[sub_resource type="SpriteFrames" id=9]
+[sub_resource type="SpriteFrames" id=5]
 animations = [ {
-"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
 "loop": true,
 "name": "Move",
 "speed": 5.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=10]
+[sub_resource type="CapsuleShape2D" id=6]
 radius = 14.5434
 height = 24.4761
 
-[sub_resource type="Animation" id=2]
-resource_name = "Death"
+[sub_resource type="Animation" id=7]
 length = 0.6
 tracks/0/type = "value"
 tracks/0/path = NodePath("AudioStreamPlayer:playing")
@@ -102,46 +105,45 @@ tracks/4/keys = {
 "values": [ 0.0, 90.0 ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "Default"
+[sub_resource type="Animation" id=8]
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=9]
 length = 0.6
 tracks/0/type = "value"
-tracks/0/path = NodePath("AudioStreamPlayer:playing")
+tracks/0/path = NodePath("AnimatedSprite:position")
 tracks/0/interp = 1
-tracks/0/loop_wrap = false
+tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 2.46229, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("AnimatedSprite:position")
+tracks/1/path = NodePath("AnimatedSprite:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
-"transitions": PoolRealArray( 1, 0.517632, 2.46229, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, -30 ), Vector2( 0, 0 ), Vector2( 0, 0 ) ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("AnimatedSprite:modulate")
+tracks/2/path = NodePath("HIT_SOUND:playing")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.401, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 0.243137 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 3.86375 ),
+"update": 1,
+"values": [ true ]
 }
 
 [node name="Grunt" type="Area2D" groups=[
@@ -151,12 +153,11 @@ monitoring = false
 collision_layer = 4
 collision_mask = 0
 script = ExtResource( 1 )
-grunt_speed = 100
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." groups=[
 "Enemies",
 ]]
-frames = SubResource( 9 )
+frames = SubResource( 5 )
 animation = "Move"
 flip_h = true
 
@@ -164,12 +165,30 @@ flip_h = true
 "Enemies",
 ]]
 position = Vector2( -2.77795, 0.793701 )
-shape = SubResource( 10 )
+shape = SubResource( 6 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Death = SubResource( 2 )
-anims/Default = SubResource( 3 )
-anims/Hit = SubResource( 4 )
+anims/Death = SubResource( 7 )
+anims/Default = SubResource( 8 )
+anims/Hit = SubResource( 9 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
+
+[node name="HealthBar" type="TextureProgress" parent="."]
+margin_left = -14.0
+margin_top = -30.0
+margin_right = 10.0
+margin_bottom = -24.0
+value = 100.0
+texture_under = ExtResource( 5 )
+texture_progress = ExtResource( 4 )
+tint_progress = Color( 1, 1, 1, 0.803922 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HIT_SOUND" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 7 )
+attenuation = 1.0

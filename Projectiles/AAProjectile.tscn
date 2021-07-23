@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Projectiles/AAProjectile.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/AAProjectile.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Images/Projectiles/PROJECTILE_BULLET_CRASH1.svg" type="Texture" id=2]
 [ext_resource path="res://Assets/Images/Projectiles/PROJECTILE_AA.png" type="Texture" id=3]
 
@@ -11,7 +11,7 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 2 ) ],
+"frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "dealdamage",
 "speed": 20.0

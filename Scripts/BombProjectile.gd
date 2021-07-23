@@ -11,6 +11,7 @@ func _on_Area2D_area_entered(area: Area2D) -> void:
 	if(area.is_in_group("Enemies")):
 		var area_list = .get_node("Range").get_overlapping_areas()
 		.get_node("AnimatedSprite").play("default")
+		$Range/WHITE_CIRCLE.show()
 		.get_node("Range/AnimationPlayer").play("Explode")
 		area.dealt_damage(.get_damage())
 		print(area_list)

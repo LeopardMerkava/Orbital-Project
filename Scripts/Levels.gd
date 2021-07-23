@@ -13,11 +13,11 @@ var gameoverbool = false
 onready var spawner = load("res://Misc/Spawner.tscn")
 
 #Mob list
-onready var mob = [preload("res://Enemies/Grunt.tscn")]
+onready var mob
 
 #wave vars
-var wave_size = [[5], [7], [10]]
-var enemies = 5 + 7 + 10
+var wave_size  
+var enemies 
 var current_wave = 0
 var done_spawning = false
 
@@ -30,7 +30,7 @@ export var cash = 10
 # Tower & Tower Placement Vars
 onready var basic_tower = preload("res://Towers/BasicTower.tscn")
 onready var bomb_tower = preload("res://Towers/BombTower.tscn")
-onready var aa_tower = preload("res://Towers/AATower.tscn")
+onready var aa_tower = preload("res://Towers/RailTower.tscn")
 var can_place_tower = false
 var invalid_tile
 var curr_tower
@@ -118,7 +118,10 @@ func _on_spawner_time_timeout():
 		var path = $nav.get_simple_path($start.position, $end.position)
 		var start_pos = $start.position
 		var destination = $end.position
+		print(mob[i])
 		currspawner.spawn(mob[i], 1, wave_size[current_wave][i], start_pos, destination, path)
+		
+		yield(get_tree().create_timer(0.2), "timeout")
 	current_wave += 1
 
 	if current_wave < wave_size.size():
