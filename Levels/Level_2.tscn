@@ -169,11 +169,13 @@ margin_bottom = 86.0
 text = "Cost: 15"
 
 [node name="aa_tower" type="Button" parent="UI"]
+anchor_top = 0.0353546
+anchor_bottom = 0.0353546
 margin_left = 472.0
 margin_top = 496.0
 margin_right = 568.0
 margin_bottom = 560.0
-text = "AA Tower"
+text = "Rail Tower"
 __meta__ = {
 "_edit_use_anchors_": false
 }

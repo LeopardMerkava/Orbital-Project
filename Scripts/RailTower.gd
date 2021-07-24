@@ -2,7 +2,7 @@ extends Towers
 
 #var to track readiness to fire
 var rtf = false
-var cost = 5
+var cost = 10
 
 func _ready() -> void:
 	.set_projectile(load("res://Projectiles/RailProjectile.tscn"))

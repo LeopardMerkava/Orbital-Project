@@ -3,7 +3,7 @@ extends Mob
 var id = 'Tank'
 export var tank_speed = 70
 export var max_health = 15
-export var tank_cash = 15
+export var tank_cash = 10
 
 func _ready() -> void:
 	#Set parent speed, health, and cash
