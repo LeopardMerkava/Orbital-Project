@@ -1,7 +1,7 @@
 extends Mob
 
 var id = 'Floater'
-export var floater_speed = 100
+export var floater_speed = 80
 export var max_health = 4
 export var floater_cash = 7
 
