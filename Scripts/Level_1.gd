@@ -12,3 +12,4 @@ func _ready():
 	wave_size = cur_wave_size
 	enemies = cur_enemies
 	next_level = 2
+

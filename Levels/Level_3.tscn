@@ -167,7 +167,7 @@ margin_right = 76.0
 margin_bottom = 86.0
 text = "Cost: 15"
 
-[node name="aa_tower" type="Button" parent="UI"]
+[node name="rail_tower" type="Button" parent="UI"]
 margin_left = 472.0
 margin_top = 496.0
 margin_right = 568.0
@@ -177,11 +177,33 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="cost" type="Label" parent="UI/aa_tower"]
+[node name="cost" type="Label" parent="UI/rail_tower"]
 margin_left = 21.6696
 margin_top = 71.1261
 margin_right = 73.6696
 margin_bottom = 85.1261
+text = "Cost: 10"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="aa_tower" type="Button" parent="UI"]
+anchor_left = 3.05176e-06
+anchor_right = 3.05176e-06
+margin_left = 616.0
+margin_top = 496.0
+margin_right = 704.0
+margin_bottom = 560.0
+text = "AA Tower"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="cost" type="Label" parent="UI/aa_tower"]
+margin_left = 18.0
+margin_top = 72.0
+margin_right = 70.0
+margin_bottom = 86.0
 text = "Cost: 10"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -244,5 +266,6 @@ autoplay = true
 [connection signal="timeout" from="spawner_time" to="." method="_on_spawner_time_timeout"]
 [connection signal="pressed" from="UI/tower" to="." method="_on_tower_pressed"]
 [connection signal="pressed" from="UI/bomb_tower" to="." method="_on_bomb_tower_pressed"]
+[connection signal="pressed" from="UI/rail_tower" to="." method="_on_aa_tower_pressed"]
 [connection signal="pressed" from="UI/aa_tower" to="." method="_on_aa_tower_pressed"]
 [connection signal="pressed" from="UI/start_next_wave" to="." method="_on_start_next_wave_pressed"]

@@ -30,7 +30,9 @@ export var cash = 10
 # Tower & Tower Placement Vars
 onready var basic_tower = preload("res://Towers/BasicTower.tscn")
 onready var bomb_tower = preload("res://Towers/BombTower.tscn")
-onready var aa_tower = preload("res://Towers/RailTower.tscn")
+onready var rail_tower = preload("res://Towers/RailTower.tscn")
+onready var aa_tower = preload("res://Towers/AATower.tscn")
+
 var can_place_tower = false
 var invalid_tile
 var curr_tower
@@ -160,6 +162,11 @@ func _on_bomb_tower_pressed():
 	can_place_tower = !can_place_tower
 	curr_tower = bomb_tower
 
+func _on_rail_tower_pressed():
+	$tower_placement.clear()
+	can_place_tower = !can_place_tower
+	curr_tower = rail_tower
+	
 func _on_aa_tower_pressed():
 	$tower_placement.clear()
 	can_place_tower = !can_place_tower
