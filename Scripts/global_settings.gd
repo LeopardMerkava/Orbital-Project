@@ -1,6 +1,5 @@
 extends Node
 var music = -15
-var sfx = -15
 var speed_multiplier = 1.0
 var health_multiplier = 1.0
 var damage_multiplier = 1.0
