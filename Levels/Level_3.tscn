@@ -266,6 +266,6 @@ autoplay = true
 [connection signal="timeout" from="spawner_time" to="." method="_on_spawner_time_timeout"]
 [connection signal="pressed" from="UI/tower" to="." method="_on_tower_pressed"]
 [connection signal="pressed" from="UI/bomb_tower" to="." method="_on_bomb_tower_pressed"]
-[connection signal="pressed" from="UI/rail_tower" to="." method="_on_aa_tower_pressed"]
+[connection signal="pressed" from="UI/rail_tower" to="." method="_on_rail_tower_pressed"]
 [connection signal="pressed" from="UI/aa_tower" to="." method="_on_aa_tower_pressed"]
 [connection signal="pressed" from="UI/start_next_wave" to="." method="_on_start_next_wave_pressed"]
